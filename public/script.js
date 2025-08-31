@@ -1,5 +1,5 @@
 // ---- Config --------------------------------------------
-const DATA_URL = '/datos.json'; // cambia a '/data.json' si tu archivo se llama así
+const DATA_URL = '/data.json'; // cambia a '/data.json' si tu archivo se llama así
 
 console.log('script.js ACTIVO v4');
 
