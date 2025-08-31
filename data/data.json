@@ -1,0 +1,37 @@
+[
+  {
+    "termino": "REST",
+    "definicion": "REST es un estilo arquitectónico para construir servicios web usando recursos identificados por URLs y operaciones estándar de HTTP.",
+    "fuente": "INTEP / Allamaraju, S. (2010). RESTful Web Services Cookbook."
+  },
+  {
+    "termino": "SOAP",
+    "definicion": "SOAP es un protocolo basado en XML para intercambio de mensajes estructurados entre aplicaciones a través de la red.",
+    "fuente": "INTEP / Tutorialspoint SOAP."
+  },
+  {
+    "termino": "HTTP",
+    "definicion": "HTTP es el protocolo de aplicación que permite la transferencia de documentos hipertexto y datos en la Web.",
+    "fuente": "INTEP."
+  },
+  {
+    "termino": "XML",
+    "definicion": "XML es un lenguaje de marcado extensible para estructurar y transportar información.",
+    "fuente": "INTEP."
+  },
+  {
+    "termino": "JSON",
+    "definicion": "JSON es un formato ligero de intercambio de datos basado en pares clave-valor y arreglos.",
+    "fuente": "INTEP / restapitutorial.com."
+  },
+  {
+    "termino": "WSDL",
+    "definicion": "WSDL describe formalmente la interfaz de un servicio web (operaciones, mensajes, bindings y endpoints).",
+    "fuente": "INTEP."
+  },
+  {
+    "termino": "UDDI",
+    "definicion": "UDDI es un estándar para el registro y descubrimiento de servicios web.",
+    "fuente": "INTEP."
+  }
+]

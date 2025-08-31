@@ -1,0 +1,12 @@
+{
+  "name": "servicioswebapi",
+  "version": "1.0.0",
+  "description": "API + Frontend de conceptos (REST, SOAP, JSON, XML) para proyecto INTEP",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}
