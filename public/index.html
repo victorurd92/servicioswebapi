@@ -1,14 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicios Web - API INTEP</title>
-  <link rel="stylesheet" href="/public/style.css">
+  <link rel="stylesheet" href="/style.css?v=1">
 </head>
 <body>
   <header class="hero">
-    <img src="/public/logo-intep.png" alt="INTEP" class="logo" />
+    <img src="/logo-intep.png" alt="INTEP" class="logo">
     <h1>Servicios Web - API</h1>
     <p>Proyecto académico - INTEP</p>
   </header>
@@ -20,19 +20,22 @@
       <div class="controls">
         <input id="q" type="text" placeholder="Escribe un término (REST, SOAP, JSON, XML)" />
         <button id="btnBuscar" class="btn btn-primary">Buscar</button>
-        <button id="btnTodos"  class="btn btn-success">Ver todos</button>
+        <button id="btnTodos" class="btn btn-success">Ver todos</button>
       </div>
-      <p id="status">Escribe un término o usa los botones.</p>
-      <div id="cards"></div>
     </section>
+
+    <!-- Estado y resultados -->
+    <p id="status">Escribe un término o usa los botones.</p>
+    <div id="cards"></div>
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
     <p><strong>Autores:</strong> Víctor Danilo Urdinola Aponte - Pablo Andrés García Acosta</p>
     <p>Materia: Servicios Web</p>
   </footer>
 
-  <!-- Solo este script; cache-buster v=6 -->
-  <script src="/public/script.js?v=6" defer></script>
+  <!-- Script con cache-buster -->
+  <script src="/script.js?v=4" defer></script>
 </body>
 </html>
