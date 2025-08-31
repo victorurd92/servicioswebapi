@@ -1,7 +1,7 @@
 // ---- Config --------------------------------------------
-const DATA_URL = '/data.json'; // cambia a '/data.json' si tu archivo se llama así
+const DATA_URL = '/data.json'; // Archivo JSON en /public
 
-console.log('script.js ACTIVO v4');
+console.log('script.js ACTIVO v6');
 
 // ---- Referencias al DOM --------------------------------
 const $q         = document.getElementById('q');
@@ -83,11 +83,9 @@ async function onVerTodos() {
 
 // ---- Inicialización (NO carga nada al inicio) -----------
 (function init() {
-  // Mensaje inicial y contenedor vacío:
   $status.textContent = 'Escribe un término o usa los botones.';
   $cards.innerHTML = '';
 
-  // Eventos:
   $btnBuscar.addEventListener('click', onBuscar);
   $btnTodos.addEventListener('click', onVerTodos);
   $q.addEventListener('keydown', (ev) => {
