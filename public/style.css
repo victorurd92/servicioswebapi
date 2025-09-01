@@ -59,11 +59,11 @@ body::before{
 }
 
 .controls{
-  display:grid;
-  grid-template-columns: 1fr auto;
+  display:flex;
+  flex-direction: column;
   gap: 12px;
-  align-items: stretch;
 }
+
 .controls input{
   width:100%;
   font-size: 16px;
@@ -73,18 +73,15 @@ body::before{
   outline: none;
 }
 .controls input:focus{
-  border-color:#0ea5e9; /* sky-500 */
+  border-color:#0ea5e9;
   box-shadow: 0 0 0 4px rgba(14,165,233,.15);
 }
 
 .buttons{
   display:flex;
-  flex-direction: column;
-  gap: 8px;
-}
-@media (max-width: 700px){
-  .controls{ grid-template-columns: 1fr; }
-  .buttons{ flex-direction: row; flex-wrap: wrap; }
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 /* Botones */
