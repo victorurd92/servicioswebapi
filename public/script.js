@@ -1,5 +1,5 @@
 // --- Config ---
-const DATA_URL = 'datos.json'; // mismo nivel que index.html
+const DATA_URL = 'data.json'; // mismo nivel que index.html
 
 console.log('script.js listo v6');
 
