@@ -1,37 +1,29 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Servicios Web - API</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>Servicios Web - API</h1>
-    <h2>Proyecto académico - INTEP</h2>
-  </header>
+console.log("script.js cargado ✅");
 
-  <main>
-    <section class="buscador">
-      <h3>Buscador de Conceptos (REST, SOAP, JSON, XML)</h3>
-      <input type="text" id="q" placeholder="Escribe un término o usa los botones...">
-      <div class="botones">
-        <button id="btnBuscar" class="btn btn-orange">Buscar</button>
-        <button id="btnLimpiar" class="btn btn-blue">Borrar</button>
-        <a href="https://campus.intep.edu.co" target="_blank" class="btn btn-green">Ir al Campus INTEP</a>
-      </div>
-      <div id="status"></div>
-      <div id="cards"></div>
-    </section>
-  </main>
+// Diccionario de conceptos
+const conceptos = {
+  "REST": "REST es un estilo de arquitectura para servicios web que utiliza HTTP para la comunicación.",
+  "SOAP": "SOAP es un protocolo basado en XML para el intercambio de información en servicios web.",
+  "JSON": "JSON es un formato ligero de intercambio de datos, fácil de leer y escribir por humanos y máquinas.",
+  "XML": "XML es un lenguaje de marcado que define un conjunto de reglas para la codificación de documentos."
+};
 
-  <footer>
-    <p><strong>Autores:</strong> Víctor Danilo Urdinola Aponte — Pablo Andrés García Acosta</p>
-    <p><em>Materia: Servicios Web</em></p>
-    <p>© INTEP - Proyecto académico</p>
-  </footer>
+document.getElementById("btnBuscar").addEventListener("click", () => {
+  const termino = document.getElementById("searchInput").value.trim().toUpperCase();
+  const resultado = document.getElementById("resultado");
 
-  <script src="script.js"></script>
-</body>
-</html>
+  if (termino in conceptos) {
+    resultado.textContent = conceptos[termino];
+  } else {
+    resultado.textContent = "❌ No se encontró el término.";
+  }
+});
+
+document.getElementById("btnBorrar").addEventListener("click", () => {
+  document.getElementById("searchInput").value = "";
+  document.getElementById("resultado").textContent = "";
+});
+
+document.getElementById("btnCampus").addEventListener("click", () => {
+  window.open("https://campus.intep.edu.co", "_blank");
+});

@@ -7,30 +7,34 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <img src="logo-intep.png" alt="Logo INTEP" class="logo-intep">
-  <h1>Servicios Web - API</h1>
-  <h2>Proyecto académico - INTEP</h2>
-</header>
+  <!-- Encabezado con logo -->
+  <header>
+    <img src="logo-intep.png" alt="Logo INTEP" class="logo-intep">
+    <div>
+      <h1>Servicios Web - API</h1>
+      <h2>Proyecto académico - INTEP</h2>
+    </div>
+  </header>
 
-  <main>
-    <section class="buscador">
+  <!-- Contenedor principal -->
+  <main class="contenedor">
+    <div class="buscador">
       <h3>Buscador de Conceptos (REST, SOAP, JSON, XML)</h3>
-      <input type="text" id="q" placeholder="Escribe un término o usa los botones...">
+      <input type="text" id="searchInput" placeholder="Escribe un término o usa los botones.">
       <div class="botones">
-        <button id="btnBuscar" class="btn btn-orange">Buscar</button>
-        <button id="btnLimpiar" class="btn btn-blue">Borrar</button>
-        <a href="https://campus.intep.edu.co" target="_blank" class="btn btn-green">Ir al Campus INTEP</a>
+        <button id="btnBuscar">Buscar</button>
+        <button id="btnBorrar">Borrar</button>
+        <button id="btnCampus">Ir al Campus INTEP</button>
       </div>
-      <div id="status"></div>
-      <div id="cards"></div>
-    </section>
+      <div id="resultado"></div>
+    </div>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p><strong>Autores:</strong> Víctor Danilo Urdinola Aponte — Pablo Andrés García Acosta</p>
-    <p><em>Materia: Servicios Web</em></p>
-    <p>© INTEP - Proyecto académico</p>
+    <p><strong>Autores:</strong> Víctor Danilo Urdinola Aponte · Pablo Andrés García Acosta</p>
+    <p><em>Materia:</em> Servicios Web</p>
+    <p>© INTEP · Proyecto académico</p>
   </footer>
 
   <script src="script.js"></script>
