@@ -18,7 +18,7 @@ body {
     background-position: 0 0;
   }
   100% {
-    background-position: 1000px 1; /* cambia la dirección y velocidad */
+    background-position: 1000px 0; /* cambia la dirección y velocidad */
   }
 }
 
