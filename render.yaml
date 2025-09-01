@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: servicioswebapi
+    env: node
+    region: virginia           # usa la región donde ya tienes todo
+    plan: free
+    branch: main
+    buildCommand: ""
+    startCommand: node server.js
+    autoDeploy: true
