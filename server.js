@@ -1,22 +1,20 @@
+// server.js
 const express = require("express");
 const path = require("path");
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// Middleware para archivos estáticos
+// Configurar puerto dinámico (Render usa process.env.PORT)
+const PORT = process.env.PORT || 4000;
+
+// Servir archivos estáticos desde la carpeta public
 app.use(express.static(path.join(__dirname, "public")));
 
-// Ruta para JSON
-app.get("/data.json", (req, res) => {
-  res.sendFile(path.join(__dirname, "data.json"));
-});
-
-// Página principal
+// Ruta principal
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// Arrancar servidor
+// Iniciar servidor
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
