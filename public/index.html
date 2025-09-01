@@ -1,41 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Servicios Web - API INTEP</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Fondo animado -->
+  <!-- capa de ondas animadas -->
   <div class="ondas" aria-hidden="true"></div>
 
   <header class="hero">
-    <img src="logo-intep.png" alt="INTEP" class="logo"/>
-    <h1>Servicios Web - API</h1>
-    <p>Proyecto académico - INTEP</p>
+    <img src="logo-intep.png" alt="INTEP" class="logo" onerror="this.style.display='none'"/>
+    <div>
+      <h1>Servicios Web - API</h1>
+      <p>Proyecto académico · INTEP</p>
+    </div>
   </header>
 
   <main class="container">
-    <section class="search-box">
+    <section class="searchbox">
       <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
+
       <div class="controls">
-        <input id="q" type="text" placeholder="Escribe un término (REST, SOAP, JSON, XML)" aria-label="Caja de búsqueda"/>
-        <button id="btnBuscar" class="btn btn-primary">Buscar</button>
-        <button id="btnLimpiar" class="btn btn-secondary" title="Limpiar resultados">Borrar</button>
-        <a class="btn btn-success" href="https://campus.intep.edu.co" target="_blank" rel="noopener">Ir al Campus INTEP</a>
+        <input id="q" type="text" placeholder="Escribe un término (REST, SOAP, JSON, XML)" />
+        <div class="btns">
+          <button id="btnBuscar"  class="btn btn-primary">Buscar</button>
+          <button id="btnLimpiar" class="btn btn-secondary">Borrar</button>
+          <a class="btn btn-success" href="https://campus.intep.edu.co" target="_blank" rel="noopener">
+            Ir al Campus INTEP
+          </a>
+        </div>
       </div>
+
+      <p id="status" class="status">Escribe un término o usa los botones.</p>
+      <div id="cards" class="cards"></div>
     </section>
 
-    <p id="status" class="status">Escribe un término o usa los botones.</p>
-    <div id="cards" class="cards"></div>
+    <section class="info">
+      <h3>¿Qué estás viendo?</h3>
+      <p>
+        Este buscador muestra definiciones básicas de conceptos de servicios web.
+        Los datos se leen desde <code>data.json</code> y se filtran en el navegador.
+      </p>
+    </section>
   </main>
 
   <footer class="footer">
-    <p><strong>Autores:</strong> Víctor Danilo Urdinola Aponte — Pablo Andrés García Acosta</p>
+    <p><strong>Autores:</strong> Víctor Danilo Urdinola Aponte · Pablo Andrés García Acosta</p>
     <p>Materia: Servicios Web</p>
   </footer>
 
-  <script src="script.js?v=6" defer></script>
+  <!-- cache-buster v6 -->
+  <script src="js/script.js?v=6" defer></script>
 </body>
 </html>
