@@ -1,67 +1,60 @@
-// script.js
-const DATA_URL = 'data.json';
-console.log('script.js listo');
+console.log("script.js listo v8");
 
-const $q          = document.getElementById('q');
-const $btnBuscar  = document.getElementById('btnBuscar');
-const $btnLimpiar = document.getElementById('btnLimpiar');
-const $status     = document.getElementById('status');
-const $cards      = document.getElementById('cards');
+const $q = document.getElementById("q");
+const $btnBuscar = document.getElementById("btnBuscar");
+const $btnLimpiar = document.getElementById("btnLimpiar");
+const $btnCampus = document.getElementById("btnCampus");
+const $status = document.getElementById("status");
+const $cards = document.getElementById("cards");
 
-const cardHTML = (item) => `
-  <article class="card">
-    <h3>${item.termino}</h3>
-    <p><strong>Definición:</strong> ${item.definicion}</p>
-    <p><em>Fuente:</em> ${item.fuente || '-'}</p>
-  </article>
-`;
+let data = [];
 
-const pintar = (lista) => {
-  if (!lista || lista.length === 0) {
-    $cards.innerHTML = '';
-    $status.textContent = '🔎 No se encontraron resultados.';
+// Cargar data.json desde el servidor
+fetch("/api/data")
+  .then(res => res.json())
+  .then(json => {
+    data = json;
+    console.log("Datos cargados:", data);
+  })
+  .catch(err => {
+    console.error("Error cargando data.json", err);
+    $status.textContent = "Error cargando datos.";
+  });
+
+// Buscar
+$btnBuscar.addEventListener("click", () => {
+  const query = $q.value.trim().toLowerCase();
+  $cards.innerHTML = "";
+  $status.textContent = "";
+
+  if (!query) {
+    $status.textContent = "Escribe un término para buscar.";
     return;
   }
-  $status.textContent = `Resultados: ${lista.length}`;
-  $cards.innerHTML = lista.map(cardHTML).join('');
-};
 
-const fetchJSON = async (url) => {
-  const res = await fetch(url, { cache: 'no-store' });
-  if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-  return res.json();
-};
+  const resultados = data.filter(item =>
+    item.termino.toLowerCase().includes(query)
+  );
 
-async function onBuscar() {
-  const termino = ($q.value || '').trim().toLowerCase();
-  if (!termino) {
-    $status.textContent = 'Escribe un término para buscar.';
-    $cards.innerHTML = '';
-    return;
+  if (resultados.length > 0) {
+    resultados.forEach(item => {
+      const card = document.createElement("div");
+      card.innerHTML = `<h3>${item.termino}</h3><p>${item.definicion}</p>`;
+      $cards.appendChild(card);
+    });
+  } else {
+    $status.textContent = "No se encontraron resultados.";
   }
-  try {
-    $status.textContent = 'Buscando...';
-    const data = await fetchJSON(DATA_URL);
-    const lista = data.filter(x =>
-      (x.termino || '').toLowerCase().includes(termino) ||
-      (x.definicion || '').toLowerCase().includes(termino)
-    );
-    pintar(lista);
-  } catch (e) {
-    $status.textContent = `❌ Error: ${e.message}`;
-    $cards.innerHTML = '';
-  }
-}
+});
 
-function onLimpiar() {
-  $q.value = '';
-  $status.textContent = 'Escribe un término o usa los botones.';
-  $cards.innerHTML = '';
-  $q.focus();
-}
+// Limpiar
+$btnLimpiar.addEventListener("click", () => {
+  $q.value = "";
+  $cards.innerHTML = "";
+  $status.textContent = "";
+});
 
-(function init() {
-  $btnBuscar.addEventListener('click', onBuscar);
-  $btnLimpiar.addEventListener('click', onLimpiar);
-  $q.addEventListener('keydown', (ev) => ev.key === 'Enter' && onBuscar());
-})();
+// Ir al Campus INTEP
+$btnCampus.addEventListener("click", () => {
+  window.open("https://campus.intep.edu.co/", "_blank");
+});

@@ -3,52 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Servicios Web - API | INTEP</title>
-  <link rel="stylesheet" href="/public/style.css">
+  <title>Servicios Web - API</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+  <header>
+    <h1>Servicios Web - API</h1>
+    <p>Proyecto académico - INTEP</p>
+  </header>
 
-  <!-- Marca de agua -->
-  <div class="watermark">© INTEP · Proyecto académico</div>
-
-  <main class="layout">
-
-    <!-- Buscador -->
-    <section class="card buscador">
-      <div class="vtitle">Buscador de Conceptos (REST, SOAP, JSON, XML)</div>
+  <main>
+    <section class="search-box">
+      <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
+      <input type="text" id="q" placeholder="Escribe un término o usa los botones">
       <div class="controls">
-        <input id="q" type="text" placeholder="Escribe un término o usa los botones.">
-        <div class="buttons">
-          <button id="btnBuscar" class="btn btn-primary">Buscar</button>
-          <button id="btnLimpiar" class="btn btn-secondary">Borrar</button>
-          <a href="https://campus.intep.edu.co" target="_blank" class="btn btn-campus">Ir al Campus INTEP</a>
-        </div>
-        <p id="status" class="status">Escribe un término o usa los botones.</p>
+        <button id="btnBuscar">Buscar</button>
+        <button id="btnLimpiar">Borrar</button>
+        <button id="btnCampus">Ir al Campus INTEP</button>
       </div>
-    </section>
-
-    <!-- Título -->
-    <section class="hero">
-      <h1>Servicios Web - API</h1>
-      <p class="subtitle">Proyecto académico · INTEP</p>
+      <p id="status"></p>
+      <div id="cards"></div>
     </section>
   </main>
 
-  <!-- Resultados -->
-  <section class="results">
-    <div id="cards"></div>
-  </section>
-
-  <!-- Footer con autores -->
-  <footer class="footer">
-    <h3>Autores</h3>
-    <ul>
-      <li>Víctor Danilo Urdinola Aponte</li>
-      <li>Pablo Andrés García Acosta</li>
-    </ul>
-    <p class="muted"><em>Materia:</em> Servicios Web</p>
+  <footer>
+    <p><strong>Autores:</strong> Víctor Danilo Urdinola Aponte — Pablo Andrés García Acosta</p>
+    <p><em>Materia:</em> Servicios Web</p>
   </footer>
 
-  <script src="/public/script.js?v=9" defer></script>
+  <script src="/script.js"></script>
 </body>
 </html>
