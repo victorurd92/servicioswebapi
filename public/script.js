@@ -1,60 +1,37 @@
-console.log("script.js listo v8");
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios Web - API</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Servicios Web - API</h1>
+    <h2>Proyecto académico - INTEP</h2>
+  </header>
 
-const $q = document.getElementById("q");
-const $btnBuscar = document.getElementById("btnBuscar");
-const $btnLimpiar = document.getElementById("btnLimpiar");
-const $btnCampus = document.getElementById("btnCampus");
-const $status = document.getElementById("status");
-const $cards = document.getElementById("cards");
+  <main>
+    <section class="buscador">
+      <h3>Buscador de Conceptos (REST, SOAP, JSON, XML)</h3>
+      <input type="text" id="q" placeholder="Escribe un término o usa los botones...">
+      <div class="botones">
+        <button id="btnBuscar" class="btn btn-orange">Buscar</button>
+        <button id="btnLimpiar" class="btn btn-blue">Borrar</button>
+        <a href="https://campus.intep.edu.co" target="_blank" class="btn btn-green">Ir al Campus INTEP</a>
+      </div>
+      <div id="status"></div>
+      <div id="cards"></div>
+    </section>
+  </main>
 
-let data = [];
+  <footer>
+    <p><strong>Autores:</strong> Víctor Danilo Urdinola Aponte — Pablo Andrés García Acosta</p>
+    <p><em>Materia: Servicios Web</em></p>
+    <p>© INTEP - Proyecto académico</p>
+  </footer>
 
-// Cargar data.json desde el servidor
-fetch("/api/data")
-  .then(res => res.json())
-  .then(json => {
-    data = json;
-    console.log("Datos cargados:", data);
-  })
-  .catch(err => {
-    console.error("Error cargando data.json", err);
-    $status.textContent = "Error cargando datos.";
-  });
-
-// Buscar
-$btnBuscar.addEventListener("click", () => {
-  const query = $q.value.trim().toLowerCase();
-  $cards.innerHTML = "";
-  $status.textContent = "";
-
-  if (!query) {
-    $status.textContent = "Escribe un término para buscar.";
-    return;
-  }
-
-  const resultados = data.filter(item =>
-    item.termino.toLowerCase().includes(query)
-  );
-
-  if (resultados.length > 0) {
-    resultados.forEach(item => {
-      const card = document.createElement("div");
-      card.innerHTML = `<h3>${item.termino}</h3><p>${item.definicion}</p>`;
-      $cards.appendChild(card);
-    });
-  } else {
-    $status.textContent = "No se encontraron resultados.";
-  }
-});
-
-// Limpiar
-$btnLimpiar.addEventListener("click", () => {
-  $q.value = "";
-  $cards.innerHTML = "";
-  $status.textContent = "";
-});
-
-// Ir al Campus INTEP
-$btnCampus.addEventListener("click", () => {
-  window.open("https://campus.intep.edu.co/", "_blank");
-});
+  <script src="script.js"></script>
+</body>
+</html>

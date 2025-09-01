@@ -4,33 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicios Web - API</title>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <h1>Servicios Web - API</h1>
-    <p>Proyecto académico - INTEP</p>
+    <h2>Proyecto académico - INTEP</h2>
   </header>
 
   <main>
-    <section class="search-box">
-      <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
-      <input type="text" id="q" placeholder="Escribe un término o usa los botones">
-      <div class="controls">
-        <button id="btnBuscar">Buscar</button>
-        <button id="btnLimpiar">Borrar</button>
-        <button id="btnCampus">Ir al Campus INTEP</button>
+    <section class="buscador">
+      <h3>Buscador de Conceptos (REST, SOAP, JSON, XML)</h3>
+      <input type="text" id="q" placeholder="Escribe un término o usa los botones...">
+      <div class="botones">
+        <button id="btnBuscar" class="btn btn-orange">Buscar</button>
+        <button id="btnLimpiar" class="btn btn-blue">Borrar</button>
+        <a href="https://campus.intep.edu.co" target="_blank" class="btn btn-green">Ir al Campus INTEP</a>
       </div>
-      <p id="status"></p>
+      <div id="status"></div>
       <div id="cards"></div>
     </section>
   </main>
 
   <footer>
     <p><strong>Autores:</strong> Víctor Danilo Urdinola Aponte — Pablo Andrés García Acosta</p>
-    <p><em>Materia:</em> Servicios Web</p>
+    <p><em>Materia: Servicios Web</em></p>
+    <p>© INTEP - Proyecto académico</p>
   </footer>
 
-  <script src="/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
