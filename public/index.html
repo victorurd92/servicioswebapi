@@ -2,50 +2,39 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Servicios Web - API INTEP</title>
-  <link rel="stylesheet" href="/public/style.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="hero">
-    <div class="hero-inner">
-      <h1>Servicios Web - API</h1>
-      <p>Proyecto académico · INTEP</p>
-    </div>
+    <h1>Servicios Web - API</h1>
+    <p>Proyecto académico · INTEP</p>
   </header>
 
   <main class="container">
-    <!-- Columna autores -->
+    <section class="searchbox">
+      <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
+      <div class="controls">
+        <input id="q" type="text" placeholder="Escribe un término o usa los botones." />
+        <button id="btnBuscar" class="btn btn-primary">Buscar</button>
+        <button id="btnLimpiar" class="btn btn-secondary">Borrar</button>
+        <a class="btn btn-success" href="https://campus.intep.edu.co" target="_blank" rel="noopener">Ir al Campus INTEP</a>
+      </div>
+      <p id="status">Escribe un término o usa los botones.</p>
+      <div id="cards"></div>
+    </section>
+
     <aside class="panel">
       <h3>Autores</h3>
-      <p>Víctor Danilo Urdinola Aponte<br/>Pablo Andrés García Acosta</p>
-      <p><em>Materia: Servicios Web</em></p>
+      <ul>
+        <li>Víctor Danilo Urdinola Aponte</li>
+        <li>Pablo Andrés García Acosta</li>
+      </ul>
+      <p><em>Materia:</em> Servicios Web</p>
     </aside>
-
-    <!-- Buscador -->
-    <section class="panel search">
-      <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
-
-      <div class="controls">
-        <input id="q" type="text"
-               placeholder="Escribe un término o usa los botones" />
-        <div class="btns">
-          <button id="btnBuscar"  type="button" class="btn btn-primary">Buscar</button>
-          <button id="btnLimpiar" type="button" class="btn btn-secondary">Borrar</button>
-          <button id="btnCampus" type="button" class="btn btn-success">Ir al Campus INTEP</button>
-        </div>
-      </div>
-
-      <p id="status">Escribe un término o usa los botones.</p>
-      <div id="cards" class="cards"></div>
-    </section>
   </main>
 
-  <footer class="footer">
-    <small>© INTEP · Proyecto académico</small>
-  </footer>
-
-  <!-- Solo este JS -->
-  <script src="/public/script.js?v=7" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

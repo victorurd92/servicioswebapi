@@ -1,13 +1,12 @@
 {
   "name": "servicioswebapi",
   "version": "1.0.0",
-  "private": true,
-  "type": "commonjs",
-  "engines": { "node": ">=18 <23" },
+  "description": "API de conceptos - INTEP",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.18.2"
   }
 }
