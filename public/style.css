@@ -1,43 +1,96 @@
+/* ----- Base ----- */
 :root{
-  --bg:#0d6efd;
-  --bg-soft:#e9f3ff;
-  --text:#0b2239;
-  --muted:#6b7a90;
-  --white:#fff;
-  --card:#f5f7fb;
-  --primary:#ff9800;
-  --success:#1ea65a;
+  --azul:#0b65d8;
+  --azul-osc:#064a9c;
+  --naranja:#ff8a00;
+  --verde:#0ea55a;
+  --panel-bg:rgba(255,255,255,.72);
+  --shadow:0 8px 24px rgba(0,0,0,.18);
 }
 
 *{box-sizing:border-box}
 body{
-  margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell;
-  color:var(--text); background:var(--bg-soft);
+  margin:0;
+  font-family:system-ui,Segoe UI,Arial,sans-serif;
+  color:#1d2939;
+  background: #9ec6ff url("fondo-api.jpg") no-repeat center/cover fixed;
+  overflow-x:hidden;
 }
+
+/* ----- Fondo animado con “ondas” ----- */
+.ondas{
+  position:fixed; inset:-20% -20% auto -20%;
+  width:140%; height:140%;
+  background:url("fondo-api.jpg") repeat center/cover;
+  opacity:.18;
+  animation:moverOndas 16s linear infinite alternate;
+  z-index:-1;
+}
+@keyframes moverOndas{
+  from{ transform:translate3d(0,0,0) scale(1.03); }
+  to  { transform:translate3d(-110px,-60px,0) scale(1.06); }
+}
+
+/* ----- Hero ----- */
 .hero{
-  background:linear-gradient(180deg, var(--bg), #0a58ca);
-  color:var(--white); text-align:center; padding:32px 16px;
+  text-align:center;
+  color:#fff;
+  background: linear-gradient(180deg, var(--azul) 0%, var(--azul-osc) 100%);
+  padding:2.5rem 1rem 2rem;
+  box-shadow:var(--shadow);
 }
-.logo{width:96px; height:auto; display:block; margin:0 auto 8px}
-.container{max-width:980px; margin:20px auto; padding:0 16px}
-.search-box{background:var(--white); border-radius:16px; padding:20px; box-shadow:0 6px 20px rgba(13,110,253,.15)}
-.search-box h2{margin:0 0 12px}
-.controls{display:flex; gap:10px; flex-wrap:wrap}
+.logo{ width:92px; height:auto; filter:drop-shadow(0 3px 8px rgba(0,0,0,.25)); }
+.hero h1{ margin:.6rem 0 .25rem; font-size:2rem; }
+.hero p{ margin:0; opacity:.9 }
+
+/* ----- Contenedores con efecto glass ----- */
+.container,.search-box,.footer{
+  background:var(--panel-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius:14px;
+  max-width:980px;
+  margin:1.25rem auto;
+  padding:1.25rem;
+  box-shadow:var(--shadow);
+}
+
+/* ----- Buscador ----- */
+.search-box h2{ margin:.25rem 0 1rem; text-align:center }
+.controls{
+  display:flex; gap:.5rem; flex-wrap:wrap; justify-content:center;
+}
 .controls input{
-  flex:1; min-width:240px; padding:12px 14px; border:1px solid #ccd6e0; border-radius:12px; outline:none;
+  flex:1 1 360px; min-width:220px;
+  padding:.8rem .9rem; border:1px solid #d0d5dd; border-radius:10px;
+  outline:none; box-shadow:inset 0 1px 0 rgba(0,0,0,.04);
 }
-.btn{border:none; padding:12px 16px; border-radius:12px; color:#fff; cursor:pointer}
-.btn-primary{background:var(--primary)}
-.btn-success{background:var(--success)}
+.btn{
+  border:0; border-radius:10px; padding:.8rem 1.1rem; cursor:pointer;
+  color:#fff; font-weight:600; transition:transform .08s ease, filter .2s ease;
+  box-shadow: 0 4px 14px rgba(0,0,0,.12);
+}
+.btn:active{ transform:translateY(1px) }
+.btn-primary{ background:var(--naranja) }
+.btn-secondary{ background:#6b7280 }
+.btn-success{ background:var(--verde); text-decoration:none; display:inline-flex; align-items:center }
 
-.status{margin-top:10px; color:var(--muted)}
-
-.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px; margin:22px 0}
+/* ----- Estado y tarjetas ----- */
+.status{ text-align:center; margin:.6rem 0 0; font-size:.95rem }
+.cards{
+  display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  margin:1rem 0 0;
+}
 .card{
-  background:var(--card); padding:18px; border-radius:16px;
-  box-shadow:0 10px 24px rgba(31,38,135,0.13);
-  border:1px solid rgba(255,255,255,0.2);
+  background:#fff; border-radius:12px; padding:1rem 1.1rem; box-shadow:var(--shadow);
 }
-.card h3{margin:0 0 8px}
-.card p{margin:0 0 6px}
-.footer{background:#0b3b82; color:#dbe7ff; text-align:center; padding:18px}
+.card h3{ margin:.2rem 0 .5rem; color:var(--azul-osc) }
+.card p{ margin:.35rem 0 }
+
+/* ----- Footer ----- */
+.footer{ text-align:center; font-size:.95rem }
+
+/* ----- Responsive tweaks ----- */
+@media (max-width:560px){
+  .hero h1{ font-size:1.6rem }
+}

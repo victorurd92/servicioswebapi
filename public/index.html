@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Servicios Web - API INTEP</title>
-  <link rel="stylesheet" href="/style.css?v=1">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Fondo animado -->
+  <div class="ondas" aria-hidden="true"></div>
+
   <header class="hero">
-    <img src="/logo-intep.png" alt="INTEP" class="logo">
+    <img src="logo-intep.png" alt="INTEP" class="logo"/>
     <h1>Servicios Web - API</h1>
     <p>Proyecto académico - INTEP</p>
   </header>
 
   <main class="container">
-    <!-- Buscador -->
-    <section class="searchbox">
+    <section class="search-box">
       <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
       <div class="controls">
-        <input id="q" type="text" placeholder="Escribe un término (REST, SOAP, JSON, XML)" />
+        <input id="q" type="text" placeholder="Escribe un término (REST, SOAP, JSON, XML)" aria-label="Caja de búsqueda"/>
         <button id="btnBuscar" class="btn btn-primary">Buscar</button>
-        <button id="btnTodos" class="btn btn-success">Ver todos</button>
+        <button id="btnLimpiar" class="btn btn-secondary" title="Limpiar resultados">Borrar</button>
+        <a class="btn btn-success" href="https://campus.intep.edu.co" target="_blank" rel="noopener">Ir al Campus INTEP</a>
       </div>
     </section>
 
-    <!-- Estado y resultados -->
-    <p id="status">Escribe un término o usa los botones.</p>
-    <div id="cards"></div>
+    <p id="status" class="status">Escribe un término o usa los botones.</p>
+    <div id="cards" class="cards"></div>
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
-    <p><strong>Autores:</strong> Víctor Danilo Urdinola Aponte - Pablo Andrés García Acosta</p>
+    <p><strong>Autores:</strong> Víctor Danilo Urdinola Aponte — Pablo Andrés García Acosta</p>
     <p>Materia: Servicios Web</p>
   </footer>
 
-  <!-- Script con cache-buster -->
-  <script src="/script.js?v=4" defer></script>
+  <script src="script.js?v=6" defer></script>
 </body>
 </html>
