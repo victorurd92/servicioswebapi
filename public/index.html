@@ -1,57 +1,51 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Servicios Web - API INTEP</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/public/style.css" />
 </head>
 <body>
-  <!-- capa de ondas animadas -->
-  <div class="ondas" aria-hidden="true"></div>
-
   <header class="hero">
-    <img src="logo-intep.png" alt="INTEP" class="logo" onerror="this.style.display='none'"/>
-    <div>
+    <div class="hero-inner">
       <h1>Servicios Web - API</h1>
       <p>Proyecto académico · INTEP</p>
     </div>
   </header>
 
   <main class="container">
-    <section class="searchbox">
+    <!-- Columna autores -->
+    <aside class="panel">
+      <h3>Autores</h3>
+      <p>Víctor Danilo Urdinola Aponte<br/>Pablo Andrés García Acosta</p>
+      <p><em>Materia: Servicios Web</em></p>
+    </aside>
+
+    <!-- Buscador -->
+    <section class="panel search">
       <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
 
       <div class="controls">
-        <input id="q" type="text" placeholder="Escribe un término (REST, SOAP, JSON, XML)" />
+        <input id="q" type="text"
+               placeholder="Escribe un término o usa los botones" />
         <div class="btns">
-          <button id="btnBuscar"  class="btn btn-primary">Buscar</button>
-          <button id="btnLimpiar" class="btn btn-secondary">Borrar</button>
-          <a class="btn btn-success" href="https://campus.intep.edu.co" target="_blank" rel="noopener">
-            Ir al Campus INTEP
-          </a>
+          <button id="btnBuscar"  type="button" class="btn btn-primary">Buscar</button>
+          <button id="btnLimpiar" type="button" class="btn btn-secondary">Borrar</button>
+          <button id="btnCampus" type="button" class="btn btn-success">Ir al Campus INTEP</button>
         </div>
       </div>
 
-      <p id="status" class="status">Escribe un término o usa los botones.</p>
+      <p id="status">Escribe un término o usa los botones.</p>
       <div id="cards" class="cards"></div>
-    </section>
-
-    <section class="info">
-      <h3>¿Qué estás viendo?</h3>
-      <p>
-        Este buscador muestra definiciones básicas de conceptos de servicios web.
-        Los datos se leen desde <code>data.json</code> y se filtran en el navegador.
-      </p>
     </section>
   </main>
 
   <footer class="footer">
-    <p><strong>Autores:</strong> Víctor Danilo Urdinola Aponte · Pablo Andrés García Acosta</p>
-    <p>Materia: Servicios Web</p>
+    <small>© INTEP · Proyecto académico</small>
   </footer>
 
-  <!-- cache-buster v6 -->
-  <script src="js/script.js?v=6" defer></script>
+  <!-- Solo este JS -->
+  <script src="/public/script.js?v=7" defer></script>
 </body>
 </html>
