@@ -1,14 +1,29 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #007BFF, #00C6FF);
-  color: #333;
-  text-align: center;
+  background: linear-gradient(270deg, #0099ff, #00ccff, #0099ff);
+  background-size: 600% 600%;
+  animation: waveBackground 15s ease infinite;
+  min-height: 100vh;
 }
 
+@keyframes waveBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
 header {
-  padding: 20px;
-  color: white;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 20px;
+}
+
+.logo-intep {
+  width: 100px;
+  height: auto;
 }
 
 main {
