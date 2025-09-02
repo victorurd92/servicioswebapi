@@ -24,7 +24,7 @@ document.getElementById("btnBorrar").addEventListener("click", () => {
   document.getElementById("resultado").textContent = "";
 });
 
-document.getElementById("btnVer").addEventListener("click", () => {
+document.getElementById("btnBibliografia").addEventListener("click", () => {
   window.open("https://aws.amazon.com/es/what-is/api/", "_blank");
 });
 
