@@ -100,6 +100,9 @@ header h1, header h2 {
 #btnBorrar { background-color: #2196f3; }
 #btnBorrar:hover { background-color: #1976d2; }
 
+#btnVertodos { background-color: #9bbad4; }
+#btnVertodos:hover { background-color: #98b4cf; }
+
 #btnCampus { background-color: #28a745; }
 #btnCampus:hover { background-color: #1e7e34; }
 

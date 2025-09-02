@@ -27,3 +27,8 @@ document.getElementById("btnBorrar").addEventListener("click", () => {
 document.getElementById("btnCampus").addEventListener("click", () => {
   window.open("https://campus.intep.edu.co", "_blank");
 });
+
+document.getElementById("btnVertodos").addEventListener("click", () => {
+  window.open("https://aws.amazon.com/es/what-is/api/", "_blank");
+});
+
