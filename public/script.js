@@ -25,7 +25,7 @@ document.getElementById("btnBorrar").addEventListener("click", () => {
 });
 
 document.getElementById("btnBibliografia").addEventListener("click", () => {
-  window.open("https://aws.amazon.com/es/what-is/api/", "_blank");
+  window.open("https://www.w3.org/TR/ws-gloss/", "_blank");
 });
 
 document.getElementById("btnCampus").addEventListener("click", () => {
