@@ -1,18 +1,13 @@
 [
   {
     "termino": "REST",
-    "definicion": "REST es un estilo de arquitectura para diseñar servicios web.",
-    "fuente": "REST - Roy Fielding"
+    "definicion": "Estilo de arquitectura para servicios web basado en recursos.",
+    "fuente": "RESTful Web Services - Richardson & Ruby"
   },
   {
     "termino": "SOAP",
-    "definicion": "SOAP es un protocolo para el intercambio estructurado de información.",
-    "fuente": "W3C - SOAP"
-  },
-  {
-    "termino": "JSON",
-    "definicion": "JSON es un formato ligero de intercambio de datos.",
-    "fuente": "JSON - Oficial"
+    "definicion": "Protocolo basado en XML para intercambio estructurado de información.",
+    "fuente": "SOAP 1.2 Specification"
   },
   {
     "termino": "XML",
@@ -27,6 +22,6 @@
   {
     "termino": "UDDI",
     "definicion": "UDDI es un estándar para la publicación y descubrimiento de servicios web.",
-    "fuente": "UDDI Specification"
+    "fuente": "UDDI specification"
   }
 ]

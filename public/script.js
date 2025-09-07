@@ -1,39 +1,55 @@
-// Buscar concepto
-document.getElementById("btnBuscar").addEventListener("click", () => {
+function buscar() {
   const termino = document.getElementById("inputBusqueda").value.toLowerCase();
   fetch("data.json")
-    .then(res => res.json())
-    .then(data => {
-      const resultado = data.find(item => item.termino.toLowerCase() === termino);
-      if (resultado) {
-        alert(`📘 Definición: ${resultado.definicion}\n🔗 Fuente: ${resultado.fuente}`);
-      } else {
-        alert("⚠️ Término no encontrado.");
-      }
+    .then((response) => response.json())
+    .then((data) => {
+      const resultado = data.find(
+        (item) => item.termino.toLowerCase() === termino
+      );
+      mostrarResultado(resultado);
     });
-});
+}
 
-// Borrar campo de búsqueda
-document.getElementById("btnBorrar").addEventListener("click", () => {
-  document.getElementById("inputBusqueda").value = "";
-});
-
-// Ver todos los términos
-document.getElementById("btnVerTodos").addEventListener("click", () => {
+function verTodos() {
   fetch("data.json")
-    .then(res => res.json())
-    .then(data => {
-      const todos = data.map(item => `🔹 ${item.termino}: ${item.definicion}`).join("\n\n");
-      alert(todos);
+    .then((response) => response.json())
+    .then((data) => {
+      mostrarLista(data);
     });
-});
+}
 
-// Ir a bibliografía
-document.getElementById("btnBibliografia").addEventListener("click", () => {
-  window.open("https://www.akamai.com/blog/cloud/performance/apis-rest-soap-graphql", "_blank");
-});
+function borrar() {
+  document.getElementById("inputBusqueda").value = "";
+  document.getElementById("resultado").innerHTML = "";
+}
 
-// Ir al campus INTEP
-document.getElementById("btnCampus").addEventListener("click", () => {
-  window.open("https://campus.intep.edu.co", "_blank");
-});
+function verBibliografia() {
+  window.open("https://libros.intep.edu.co", "_blank");
+}
+
+function irAlCampus() {
+  window.open("https://intep.edu.co", "_blank");
+}
+
+function mostrarResultado(resultado) {
+  const contenedor = document.getElementById("resultado");
+  if (resultado) {
+    contenedor.innerHTML = `
+      <p><strong>Término:</strong> ${resultado.termino}</p>
+      <p><strong>Definición:</strong> ${resultado.definicion}</p>
+      <p><strong>Fuente:</strong> ${resultado.fuente}</p>
+    `;
+  } else {
+    contenedor.innerHTML = "<p>No se encontraron resultados.</p>";
+  }
+}
+
+function mostrarLista(data) {
+  const contenedor = document.getElementById("resultado");
+  let html = "<ul>";
+  data.forEach((item) => {
+    html += `<li><strong>${item.termino}:</strong> ${item.definicion} <em>(${item.fuente})</em></li>`;
+  });
+  html += "</ul>";
+  contenedor.innerHTML = html;
+}

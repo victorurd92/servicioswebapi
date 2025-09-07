@@ -16,14 +16,17 @@
   <main>
     <div class="buscador">
       <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
-      <button id="btnVerTodos">+ Ver todos</button><br /><br />
       <input type="text" id="inputBusqueda" placeholder="Escribe un término o usa la lista..." />
+
       <div class="botones">
-        <button id="btnBuscar">Buscar</button>
-        <button id="btnBorrar">Borrar</button>
-        <button id="btnBibliografia">Bibliografía</button>
-        <button id="btnCampus">Ir al Campus INTEP</button>
+        <button onclick="verTodos()">+ Ver todos</button>
+        <button onclick="buscar()">Buscar</button>
+        <button onclick="borrar()">Borrar</button>
+        <button onclick="verBibliografia()">Bibliografía</button>
+        <button onclick="irAlCampus()">Ir al Campus INTEP</button>
       </div>
+
+      <div id="resultado" class="resultado"></div>
     </div>
   </main>
 
