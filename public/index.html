@@ -1,55 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Servicios Web - API</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicios Web - API</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="curvas-animadas"></div>
+  <div class="curvas-animadas"></div>
+  <header>
+    <img src="logo-intep.png" alt="Logo INTEP" class="logo" />
+    <h1 class="titulo">Servicios Web - API</h1>
+    <p class="subtitulo">Proyecto académico - INTEP</p>
+  </header>
 
-    <header>
-        <img src="logo.png" alt="Logo INTEP" class="logo">
-        <h1>Servicios Web - API</h1>
-        <p class="subtitulo">Proyecto académico - INTEP</p>
-    </header>
-
-    <main>
-        <section class="buscador">
-            <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
-            <input type="text" id="termino" placeholder="Escribe un término o usa la lista...">
-            <div class="botones-superiores">
-                <button onclick="buscar()" class="btn buscar">Buscar</button>
-                <button onclick="borrar()" class="btn borrar">Borrar</button>
-            </div>
-            <div class="botones-inferiores">
-                <button onclick="verTodos()" class="btn todos">+ ver todos</button>
-                <button onclick="mostrarBibliografia()" class="btn biblio">Bibliografía</button>
-                <a href="https://campus.intep.edu.co" target="_blank"><button class="btn campus">Ir al Campus INTEP</button></a>
-            </div>
-            <div id="resultado"></div>
-        </section>
-    </main>
-
-    <footer>
-        © Desarrollado por <strong>Víctor Danilo Urdinola Aponte</strong> - <strong>Pablo Andrés García Acosta</strong> - <strong>Juan Manuel Díaz</strong> - Proyecto académico INTEP 2025
-    </footer>
-
-    <!-- Modal -->
-    <div id="modalBibliografia" class="modal">
-        <div class="modal-content">
-            <span class="cerrar" onclick="cerrarBibliografia()">&times;</span>
-            <h3>Bibliografía consultada</h3>
-            <ul>
-                <li><a href="https://restfulapi.net" target="_blank">https://restfulapi.net</a></li>
-                <li><a href="https://www.w3schools.com/xml/xml_whatis.asp" target="_blank">https://www.w3schools.com/xml/xml_whatis.asp</a></li>
-                <li><a href="https://www.soapui.org" target="_blank">https://www.soapui.org</a></li>
-                <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/JSON" target="_blank">https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/JSON</a></li>
-            </ul>
-        </div>
+  <section class="buscador">
+    <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
+    <input type="text" id="termino" placeholder="Escribe un término o usa la lista..." />
+    <div class="botones">
+      <button onclick="buscar()">Buscar</button>
+      <button onclick="borrar()">Borrar</button>
+      <button onclick="verTodos()">+ ver todos</button>
+      <button onclick="mostrarBibliografia()">Bibliografía</button>
+      <button onclick="window.open('https://campus.intep.edu.co', '_blank')">Ir al Campus INTEP</button>
     </div>
+  </section>
 
-    <script src="script.js"></script>
+  <footer>
+    <p>© Desarrollado por <strong>Víctor Danilo Urdinola Aponte</strong> - <strong>Pablo Andrés García Acosta</strong> - <strong>Juan Manuel Díaz</strong> - Proyecto académico INTEP 2025</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
