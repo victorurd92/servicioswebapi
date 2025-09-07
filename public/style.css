@@ -5,26 +5,39 @@ body {
   color: #222;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
   background-color: #065b9c;
-  text-align: center;
   color: white;
   padding: 20px;
+}
+
+.contenedor-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
 .logo {
   width: 80px;
   height: auto;
-  margin-left: 20px;
+}
+
+.titulos {
+  text-align: center;
 }
 
 main {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+  padding: 30px;
 }
 
 .buscador {
@@ -65,4 +78,12 @@ input {
 .resultado {
   margin-top: 20px;
   text-align: left;
+}
+
+footer {
+  background-color: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
 }

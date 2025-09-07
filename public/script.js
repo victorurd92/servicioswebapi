@@ -24,6 +24,7 @@ function borrar() {
 }
 
 function verBibliografia() {
+  // Puedes añadir más enlaces si quieres
   window.open("https://libros.intep.edu.co", "_blank");
 }
 
