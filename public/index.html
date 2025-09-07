@@ -2,56 +2,56 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Servicios Web - API</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
+  <!-- Encabezado -->
   <header>
-    <img src="https://intep.edu.co/img/logo_intep_azul.png" alt="INTEP" class="logo"/>
+    <img src="https://intep.edu.co/assets/images/intep/logo-intep-blanco.png" alt="INTEP Logo" class="logo-intep">
     <h1>Servicios Web - API</h1>
     <p>Proyecto académico - INTEP</p>
   </header>
 
+  <!-- Fondo animado -->
+  <div class="background-wave"></div>
+
+  <!-- Contenedor del panel -->
   <main>
-    <section class="buscador">
+    <div class="panel">
       <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
-      <input type="text" id="searchInput" placeholder="Escribe un término o usa los botones"/>
-
-      <div class="botones">
-        <button id="btnBuscar" class="btn-buscar">Buscar</button>
-        <button id="btnBorrar" class="btn-borrar">Borrar</button>
-        <button id="btnCampus" class="btn-campus">Ir al Campus INTEP</button>
+      <div class="search-section">
+        <input type="text" id="termino" placeholder="Escribe un término o usa la lista..." />
+        <button onclick="buscar()">Buscar</button>
+        <button onclick="borrar()">Borrar</button>
       </div>
-
-      <div class="extra-botones">
-        <button id="btnVerTodos" class="btn-ver-todos">
-          <img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" alt="icono" class="icono"/>
-          Ver todos
-        </button>
-        <button id="btnBibliografia" class="btn-bibliografia">Bibliografía</button>
+      <div class="button-group">
+        <button class="ver-todos" onclick="verTodos()">➕ Ver todos</button>
+        <button class="bibliografia" onclick="mostrarBibliografia()">Bibliografía</button>
+        <a href="https://campus.intep.edu.co" target="_blank">
+          <button class="campus-intep">Ir al Campus INTEP</button>
+        </a>
       </div>
-
-      <div id="resultado" class="resultado"></div>
-
-      <div id="panelDefiniciones" class="panel-definiciones" style="display: none;">
-        <h4>Definiciones</h4>
+      <div id="resultado"></div>
+      <div id="bibliografia" style="display:none;">
+        <h3>Bibliografía:</h3>
         <ul>
-          <li><strong>REST:</strong> Estilo de arquitectura para servicios web basada en recursos accesibles por URL usando HTTP.</li>
-          <li><strong>SOAP:</strong> Protocolo basado en XML para el intercambio estructurado de información en servicios web.</li>
-          <li><strong>JSON:</strong> Formato ligero de intercambio de datos, fácil de leer y escribir, utilizado comúnmente en APIs.</li>
-          <li><strong>XML:</strong> Lenguaje de marcas extensible para codificar documentos en un formato legible tanto por humanos como por máquinas.</li>
+          <li><a href="https://restfulapi.net/" target="_blank">https://restfulapi.net/</a></li>
+          <li><a href="https://www.w3schools.com/xml/" target="_blank">https://www.w3schools.com/xml/</a></li>
+          <li><a href="https://www.w3schools.com/js/js_json_intro.asp" target="_blank">https://www.w3schools.com/js/js_json_intro.asp</a></li>
+          <li><a href="https://www.soapui.org/learn/api/soap-vs-rest/" target="_blank">https://www.soapui.org/learn/api/soap-vs-rest/</a></li>
         </ul>
       </div>
-    </section>
+    </div>
   </main>
 
+  <!-- Pie de página -->
   <footer>
-    <p><strong>Autores:</strong> Víctor Danilo Urdinola Aponte – Pablo Andrés García Acosta - Juan Manuel Diaz</p>
+    <p><strong>Autores:</strong> Víctor Danilo Urdinola Aponte – Pablo Andrés García Acosta – Juan Manuel Díaz</p>
     <p><em>Materia:</em> Servicios Web</p>
     <p>© INTEP - Proyecto académico</p>
   </footer>
-
-  <script src="scripts.js"></script>
 </body>
 </html>

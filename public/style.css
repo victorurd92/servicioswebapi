@@ -1,127 +1,109 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  background: linear-gradient(to bottom, #ffffff, #cfe8ff);
-}
-
-header {
-  background-color: #005a8d;
-  color: white;
-  text-align: center;
-  padding: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f4;
   position: relative;
 }
 
-.logo {
+.logo-intep {
   position: absolute;
   top: 10px;
-  left: 20px;
-  width: 50px;
+  left: 10px;
+  width: 80px;
+}
+
+header {
+  background-color: #005f99;
+  color: white;
+  text-align: center;
+  padding: 2em 1em 3em;
+  position: relative;
+}
+
+.background-wave {
+  background: url('https://i.ibb.co/vcSkp5y/animated-waves.gif') no-repeat center center fixed;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+  opacity: 0.15;
 }
 
 main {
-  padding: 2rem;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -3em;
+  padding: 2em;
 }
 
-.buscador {
-  background: #fff;
-  border-radius: 12px;
-  padding: 2rem;
-  max-width: 700px;
-  margin: auto;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+.panel {
+  background-color: white;
+  padding: 2em;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  max-width: 600px;
+  width: 100%;
 }
 
-input[type="text"] {
-  width: 80%;
-  padding: 10px;
-  margin-bottom: 1rem;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+.search-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
-.botones button,
-.extra-botones button {
-  padding: 10px 16px;
-  margin: 5px;
+.search-section input {
+  padding: 0.8em;
+  font-size: 1em;
+  width: 100%;
+}
+
+.search-section button {
+  padding: 0.7em;
+  font-size: 1em;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5em;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.ver-todos {
+  background-color: #17b6d9;
+  color: white;
   border: none;
   border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
+  padding: 0.7em 1em;
 }
 
-.btn-buscar {
-  background-color: orange;
+.bibliografia {
+  background-color: #7f48ca;
   color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7em 1em;
 }
 
-.btn-borrar {
-  background-color: royalblue;
+.campus-intep {
+  background-color: #2ea646;
   color: white;
-}
-
-.btn-campus {
-  background-color: green;
-  color: white;
-}
-
-.btn-ver-todos {
-  background-color: #17a2b8;
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.btn-ver-todos .icono {
-  width: 20px;
-  height: 20px;
-}
-
-.btn-bibliografia {
-  background-color: rebeccapurple;
-  color: white;
-}
-
-.resultado {
-  margin-top: 1rem;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.panel-definiciones {
-  margin-top: 20px;
-  background-color: #f0f8ff;
-  padding: 20px;
-  border-radius: 12px;
-  border: 2px solid #007bff;
-  text-align: left;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.panel-definiciones h4 {
-  color: #005a8d;
-  margin-bottom: 10px;
-}
-
-.panel-definiciones ul {
-  list-style-type: square;
-  padding-left: 20px;
-}
-
-.panel-definiciones li {
-  margin-bottom: 10px;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7em 1em;
 }
 
 footer {
-  background-color: #005a8d;
-  color: white;
   text-align: center;
-  padding: 1rem;
+  background-color: #005f99;
+  color: white;
+  padding: 2em 1em;
+  margin-top: 2em;
 }

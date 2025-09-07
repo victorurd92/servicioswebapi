@@ -1,41 +1,35 @@
-document.getElementById("btnBuscar").addEventListener("click", () => {
-  const termino = document.getElementById("searchInput").value.toLowerCase();
-  let resultado = "";
+const conceptos = {
+  "REST": "REST (Representational State Transfer) es un estilo de arquitectura de software que utiliza peticiones HTTP para acceder y manipular datos.",
+  "SOAP": "SOAP (Simple Object Access Protocol) es un protocolo estándar basado en XML para el intercambio de información estructurada en servicios web.",
+  "JSON": "JSON (JavaScript Object Notation) es un formato ligero de intercambio de datos, fácil de leer y escribir para humanos y máquinas.",
+  "XML": "XML (eXtensible Markup Language) es un lenguaje de marcado que define reglas para codificar documentos en formato que tanto humanos como máquinas puedan leer."
+};
 
-  switch (termino) {
-    case "rest":
-      resultado = "REST: Estilo de arquitectura para servicios web basada en recursos accesibles por URL usando HTTP.";
-      break;
-    case "soap":
-      resultado = "SOAP: Protocolo basado en XML para el intercambio estructurado de información en servicios web.";
-      break;
-    case "json":
-      resultado = "JSON: Formato ligero de intercambio de datos, comúnmente usado en APIs por su simplicidad.";
-      break;
-    case "xml":
-      resultado = "XML: Lenguaje de marcas para estructurar documentos, ampliamente utilizado en sistemas antiguos.";
-      break;
-    default:
-      resultado = "Término no encontrado. Intenta con: REST, SOAP, JSON o XML.";
+function buscar() {
+  const termino = document.getElementById('termino').value.trim().toUpperCase();
+  const resultado = document.getElementById('resultado');
+  if (conceptos[termino]) {
+    resultado.innerHTML = `<p><strong>${termino}:</strong> "${conceptos[termino]}"</p>`;
+  } else {
+    resultado.innerHTML = `<p>No se encontró información para: <strong>${termino}</strong>.</p>`;
   }
+}
 
-  document.getElementById("resultado").textContent = resultado;
-});
+function borrar() {
+  document.getElementById('termino').value = '';
+  document.getElementById('resultado').innerHTML = '';
+}
 
-document.getElementById("btnBorrar").addEventListener("click", () => {
-  document.getElementById("searchInput").value = "";
-  document.getElementById("resultado").textContent = "";
-});
+function verTodos() {
+  const resultado = document.getElementById('resultado');
+  let html = '';
+  for (let clave in conceptos) {
+    html += `<p><strong>${clave}:</strong> "${conceptos[clave]}"</p>`;
+  }
+  resultado.innerHTML = html;
+}
 
-document.getElementById("btnCampus").addEventListener("click", () => {
-  window.open("https://campus.intep.edu.co", "_blank");
-});
-
-document.getElementById("btnBibliografia").addEventListener("click", () => {
-  window.open("https://aws.amazon.com/es/what-is/api/", "_blank");
-});
-
-document.getElementById("btnVerTodos").addEventListener("click", () => {
-  const panel = document.getElementById("panelDefiniciones");
-  panel.style.display = panel.style.display === "none" ? "block" : "none";
-});
+function mostrarBibliografia() {
+  const biblio = document.getElementById('bibliografia');
+  biblio.style.display = biblio.style.display === 'none' ? 'block' : 'none';
+}
