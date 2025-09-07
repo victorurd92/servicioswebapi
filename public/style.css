@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: url('img/fondo-animado.gif') no-repeat center center fixed;
+  background: url('fondo-api.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #222;
 }
