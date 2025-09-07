@@ -1,117 +1,71 @@
-/* Fondo con ondas animadas */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  min-height: 100vh;
-  background: url("fondo-api.jpg") repeat-x center top;
+  background: url("fondo-api.jpg") no-repeat center center fixed;
   background-size: cover;
-  display: flex;
-  flex-direction: column;
-
-  /* Animación */
-  animation: moverOndas 30s linear infinite;
+  color: #333;
+  text-align: center;
 }
 
-/* Keyframes para simular movimiento de olas */
-@keyframes moverOndas {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 100px 0; /* cambia la dirección y velocidad */
-  }
-}
-
-
-
-/* Header */
 header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  padding: 15px 20px;
-  background-color: rgba(0, 70, 150, 0.9); /* Azul semitransparente */
+  background: #005f99;
   color: white;
-  text-align: center;
-}
-
-header h1, header h2 {
-  margin: 0;
-}
-
-.logo-intep {
-  width: 80px;
-  height: auto;
-}
-
-/* Contenedor central */
-.contenedor {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 20px;
+  position: relative;
 }
 
-/* Caja buscador */
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  width: 60px;
+}
+
 .buscador {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 25px;
+  background: rgba(255, 255, 255, 0.9);
+  margin: 50px auto;
+  padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  width: 100%;
-  max-width: 500px;
-}
-
-.buscador h3 {
-  margin-bottom: 15px;
-}
-
-.buscador input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  width: 80%;
+  max-width: 600px;
 }
 
 .botones {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  margin-top: 15px;
 }
 
-.botones button {
-  flex: 1;
-  padding: 10px;
+.btn {
+  margin: 5px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  color: white;
   font-weight: bold;
-  transition: 0.3s;
+  transition: transform 0.2s ease;
 }
 
-#btnBuscar { background-color: #ff6f00; }
-#btnBuscar:hover { background-color: #e65c00; }
+.btn:hover {
+  transform: scale(1.05);
+}
 
-#btnBorrar { background-color: #2196f3; }
-#btnBorrar:hover { background-color: #1976d2; }
+.naranja { background: #ff6f00; color: white; }
+.azul { background: #007bff; color: white; }
+.verde { background: #28a745; color: white; }
+.morado { background: #6f42c1; color: white; }
 
-#btnBibliografia{ background-color: #acd615; }
-#btnBibliografia:hover { background-color:  #acd615; }
-
-#btnCampus { background-color: #28a745; }
-#btnCampus:hover { background-color: #1e7e34; }
-
-/* Footer */
-footer {
-  margin-top: auto;
-  padding: 15px;
-  text-align: center;
-  background-color: rgba(0, 50, 120, 0.9); /* Azul fuerte semitransparente */
+.btn.imagen {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #17a2b8;
   color: white;
-  font-size: 0.9rem;
+}
+
+footer {
+  background: #005f99;
+  color: white;
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
