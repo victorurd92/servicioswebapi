@@ -2,41 +2,72 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Servicios Web - API</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <header>
-    <div class="contenedor-header">
-      <img src="logo-intep.png" alt="Logo INTEP" class="logo" />
-      <div class="titulos">
+  <!-- ENCABEZADO -->
+  <header class="site-header">
+    <div class="header-inner">
+      <img src="logo-intep.png" alt="Logo INTEP" class="logo">
+      <div class="titles">
         <h1>Servicios Web - API</h1>
-        <p>Proyecto académico - INTEP</p>
+        <p>Proyecto académico · INTEP</p>
       </div>
     </div>
   </header>
 
+  <!-- CONTENIDO PRINCIPAL -->
   <main>
-    <div class="buscador">
+    <section class="buscador">
       <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
-      <input type="text" id="inputBusqueda" placeholder="Escribe un término o usa la lista..." />
 
-      <div class="botones">
-        <button onclick="verTodos()">+ Ver todos</button>
-        <button onclick="buscar()">Buscar</button>
-        <button onclick="borrar()">Borrar</button>
-        <button onclick="verBibliografia()">Bibliografía</button>
-        <button onclick="irAlCampus()">Ir al Campus INTEP</button>
+      <!-- fila: input + botones Buscar/Borrar -->
+      <div class="row">
+        <input id="inputBusqueda" type="text" placeholder="Escribe un término (p. ej. REST, SOAP, XML, WSDL, UDDI)"/>
+        <div class="actions-inline">
+          <button class="btn btn-primary" id="btnBuscar">Buscar</button>
+          <button class="btn btn-danger" id="btnBorrar">Borrar</button>
+        </div>
+      </div>
+
+      <!-- fila: Ver todos / Bibliografía / Campus -->
+      <div class="row row-bottom">
+        <button class="btn btn-teal" id="btnVerTodos">+ Ver todos</button>
+        <button class="btn btn-violet" id="btnBibliografia">Bibliografía</button>
+        <button class="btn btn-success" id="btnCampus">Ir al Campus INTEP</button>
       </div>
 
       <div id="resultado" class="resultado"></div>
-    </div>
+    </section>
   </main>
 
-  <footer>
-    <p>Desarrollado por Victor Danilo Urdinola Aponte - Pablo Andres Garcia - Juan Manuel Diaz INTEP 2025</p>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p><strong>Autores:</strong> Víctor Danilo Urdinola Aponte – Pablo Andrés García Acosta – Juan Manuel Díaz</p>
+      <p><strong>Materia:</strong> Servicios Web</p>
+      <p>© INTEP · Proyecto académico</p>
+    </div>
   </footer>
+
+  <!-- MODAL: Bibliografía (solo links) -->
+  <dialog id="modalBiblio" class="modal">
+    <div class="modal-card">
+      <h3>Bibliografía</h3>
+      <ul class="biblio-list">
+        <li><a href="https://restfulapi.net/" target="_blank" rel="noopener">restfulapi.net (REST)</a></li>
+        <li><a href="https://www.w3.org/TR/soap12-part1/" target="_blank" rel="noopener">W3C: SOAP 1.2</a></li>
+        <li><a href="https://www.w3.org/TR/REC-xml/" target="_blank" rel="noopener">W3C: XML 1.0</a></li>
+        <li><a href="https://www.w3.org/TR/wsdl" target="_blank" rel="noopener">W3C: WSDL</a></li>
+        <li><a href="https://www.oasis-open.org/committees/uddi-spec/doc/spec/v3/uddi-v3.0.2-20041019.htm" target="_blank" rel="noopener">OASIS: UDDI v3</a></li>
+      </ul>
+      <div class="modal-actions">
+        <button id="closeBiblio" class="btn">Cerrar</button>
+      </div>
+    </div>
+  </dialog>
 
   <script src="script.js"></script>
 </body>
