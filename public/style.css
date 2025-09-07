@@ -1,77 +1,53 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-image: url('https://www.intep.edu.co/images/banners/bannerbiblioteca2.jpg');
-  background-repeat: no-repeat;
+  background: url('assets/fondo.png') no-repeat center center fixed;
   background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  animation: ondulacion 15s ease-in-out infinite alternate;
+  animation: ondas 20s linear infinite;
+  color: #000;
 }
 
-@keyframes ondulacion {
-  0% {
-    background-position: center 0px;
-  }
-  100% {
-    background-position: center 20px;
-  }
+@keyframes ondas {
+  0% { background-position: 0 0; }
+  50% { background-position: 20px 20px; }
+  100% { background-position: 0 0; }
 }
 
 header {
   text-align: center;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .logo {
   position: absolute;
-  top: 10px;
-  left: 20px;
+  top: 15px;
+  left: 15px;
   width: 80px;
 }
 
-h1 {
-  font-size: 2.2em;
-  margin: 10px 0 5px;
-}
-
 .subtitulo {
-  font-style: italic;
+  margin-top: -10px;
+  font-size: 14px;
   color: #333;
-  margin: 0;
-}
-
-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 70vh;
-  padding: 20px;
 }
 
 .panel {
-  background-color: rgba(255, 255, 255, 0.96);
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-  max-width: 480px;
-  width: 100%;
+  margin: 50px auto;
+  max-width: 600px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
   text-align: center;
 }
 
-.panel h2 {
-  margin-bottom: 20px;
-  color: #222;
-}
-
 input[type="text"] {
-  width: 90%;
   padding: 10px;
-  font-size: 16px;
-  margin-bottom: 15px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
+  width: 90%;
+  margin: 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .botones {
@@ -79,37 +55,57 @@ input[type="text"] {
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
+  margin-top: 10px;
 }
 
-.botones button {
+button {
   padding: 10px 15px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
-  transition: background 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-.botones button:nth-child(1) { background-color: #00bcd4; color: white; }
-.botones button:nth-child(2) { background-color: #f44336; color: white; }
-.botones button:nth-child(3) { background-color: #2196f3; color: white; }
-.botones button:nth-child(4) { background-color: #673ab7; color: white; }
-.botones button:nth-child(5) { background-color: #4caf50; color: white; }
-
-.botones button:hover {
-  opacity: 0.9;
+button:hover {
+  opacity: 0.8;
 }
 
-#resultados {
+button:nth-child(1) { background-color: #00bfff; color: white; } /* Buscar */
+button:nth-child(2) { background-color: #ff4d4d; color: white; } /* Borrar */
+button:nth-child(3) { background-color: #00bfff; color: white; } /* Ver todos */
+button:nth-child(4) { background-color: #6a5acd; color: white; } /* Bibliografía */
+.ir { background-color: #28a745; color: white; }
+
+footer {
+  text-align: center;
+  font-size: 14px;
+  background-color: #0066cc;
+  color: white;
+  padding: 15px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.oculto {
+  display: none;
+}
+
+#bibliografia {
   margin-top: 20px;
-  list-style-type: none;
+}
+
+#bibliografia ul {
+  list-style: none;
   padding: 0;
 }
 
-footer {
-  background-color: #005baa;
-  color: white;
-  text-align: center;
-  padding: 12px;
-  font-size: 0.95em;
+#bibliografia a {
+  color: #004080;
+  text-decoration: none;
+}
+
+#bibliografia a:hover {
+  text-decoration: underline;
 }

@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Servicios Web - API</title>
-  <link rel="stylesheet" href="estilos.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/INTEP_logo.png/600px-INTEP_logo.png" alt="Logo INTEP" class="logo">
+    <img src="assets/logo-intep.png" alt="Logo INTEP" class="logo">
     <h1>Servicios Web - API</h1>
     <p class="subtitulo">Proyecto académico - INTEP</p>
   </header>
@@ -16,32 +16,35 @@
   <main>
     <div class="panel">
       <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
-      <input type="text" id="busqueda" placeholder="Escribe un término o usa la lista..." />
+      <input type="text" id="busqueda" placeholder="Escribe un término o usa la lista...">
       <div class="botones">
         <button onclick="buscar()">Buscar</button>
         <button onclick="borrar()">Borrar</button>
         <button onclick="verTodos()">+ ver todos</button>
-        <button onclick="mostrarBibliografia()">Bibliografía</button>
-        <button onclick="window.open('https://campus.intep.edu.co/', '_blank')">Ir al Campus INTEP</button>
+        <button onclick="verBibliografia()">Bibliografía</button>
+        <a href="https://campus.intep.edu.co" target="_blank">
+          <button class="ir">Ir al Campus INTEP</button>
+        </a>
       </div>
-      <ul id="resultados"></ul>
-      <div id="bibliografia" style="display: none;">
-        <h3>Fuentes consultadas:</h3>
+      <div id="resultado"></div>
+      <div id="bibliografia" class="oculto">
         <ul>
-          <li><a href="https://www.redhat.com/es/topics/api/what-is-a-rest-api" target="_blank">RedHat - REST API</a></li>
-          <li><a href="https://www.w3schools.com/xml/xml_soap.asp" target="_blank">W3Schools - SOAP</a></li>
-          <li><a href="https://www.json.org/json-es.html" target="_blank">JSON.org</a></li>
-          <li><a href="https://developer.mozilla.org/es/docs/Web/XML/XML_introduction" target="_blank">MDN - XML</a></li>
+          <li><a href="https://es.wikipedia.org/wiki/REST" target="_blank">REST - Wikipedia</a></li>
+          <li><a href="https://es.wikipedia.org/wiki/SOAP" target="_blank">SOAP - Wikipedia</a></li>
+          <li><a href="https://es.wikipedia.org/wiki/JSON" target="_blank">JSON - Wikipedia</a></li>
+          <li><a href="https://es.wikipedia.org/wiki/XML" target="_blank">XML - Wikipedia</a></li>
         </ul>
       </div>
     </div>
   </main>
 
   <footer>
-    <p>© Desarrollado por <strong>Víctor Danilo Urdinola Aponte</strong> - <strong>Pablo Andrés García Acosta</strong> - <strong>Juan Manuel Díaz</strong> - Proyecto académico INTEP 2025</p>
+    © Desarrollado por <strong>Víctor Danilo Urdinola Aponte</strong> - 
+    <strong>Pablo Andrés García Acosta</strong> - 
+    <strong>Juan Manuel Díaz</strong> - 
+    Proyecto académico INTEP 2025
   </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
-

@@ -1,43 +1,46 @@
-const conceptos = {
-  "REST": "REST es un estilo de arquitectura para diseñar servicios web escalables.",
-  "SOAP": "SOAP es un protocolo estándar para intercambio de información estructurada en servicios web.",
-  "JSON": "JSON es un formato ligero de intercambio de datos, fácil de leer y escribir para humanos y máquinas.",
-  "XML": "XML es un lenguaje de marcado que define reglas para codificar documentos en un formato legible.",
-  "UDDI": "UDDI es un estándar para directorios de servicios web que permite registrar y descubrir servicios."
-};
-
 function buscar() {
-  const termino = document.getElementById("busqueda").value.trim().toUpperCase();
-  const resultados = document.getElementById("resultados");
-  resultados.innerHTML = "";
+  const termino = document.getElementById('busqueda').value.toLowerCase();
+  const resultado = document.getElementById('resultado');
+  let respuesta = '';
 
-  if (termino && conceptos[termino]) {
-    const li = document.createElement("li");
-    li.textContent = conceptos[termino];
-    resultados.appendChild(li);
-  } else {
-    resultados.innerHTML = "<li>No se encontraron resultados.</li>";
+  switch (termino) {
+    case 'rest':
+      respuesta = 'REST: Arquitectura de software para sistemas distribuidos.';
+      break;
+    case 'soap':
+      respuesta = 'SOAP: Protocolo para intercambio estructurado de información.';
+      break;
+    case 'json':
+      respuesta = 'JSON: Formato ligero de intercambio de datos.';
+      break;
+    case 'xml':
+      respuesta = 'XML: Lenguaje de marcado para almacenar e intercambiar datos.';
+      break;
+    default:
+      respuesta = 'No se encontró el término.';
   }
+
+  resultado.innerText = respuesta;
 }
 
 function borrar() {
-  document.getElementById("busqueda").value = "";
-  document.getElementById("resultados").innerHTML = "";
-  document.getElementById("bibliografia").style.display = "none";
+  document.getElementById('busqueda').value = '';
+  document.getElementById('resultado').innerText = '';
 }
 
 function verTodos() {
-  const resultados = document.getElementById("resultados");
-  resultados.innerHTML = "";
-  for (const termino in conceptos) {
-    const li = document.createElement("li");
-    li.innerHTML = `<strong>${termino}</strong>: ${conceptos[termino]}`;
-    resultados.appendChild(li);
-  }
-  document.getElementById("bibliografia").style.display = "none";
+  const resultado = document.getElementById('resultado');
+  resultado.innerHTML = `
+    <ul>
+      <li><strong>REST:</strong> Arquitectura de software para sistemas distribuidos.</li>
+      <li><strong>SOAP:</strong> Protocolo para intercambio estructurado de información.</li>
+      <li><strong>JSON:</strong> Formato ligero de intercambio de datos.</li>
+      <li><strong>XML:</strong> Lenguaje de marcado para datos.</li>
+    </ul>
+  `;
 }
 
-function mostrarBibliografia() {
-  const bib = document.getElementById("bibliografia");
-  bib.style.display = bib.style.display === "none" ? "block" : "none";
+function verBibliografia() {
+  const biblio = document.getElementById('bibliografia');
+  biblio.classList.toggle('oculto');
 }
