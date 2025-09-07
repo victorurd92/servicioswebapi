@@ -1,45 +1,43 @@
-let data = [];
+const conceptos = {
+  "REST": "REST es un estilo de arquitectura para diseñar servicios web escalables.",
+  "SOAP": "SOAP es un protocolo estándar para intercambio de información estructurada en servicios web.",
+  "JSON": "JSON es un formato ligero de intercambio de datos, fácil de leer y escribir para humanos y máquinas.",
+  "XML": "XML es un lenguaje de marcado que define reglas para codificar documentos en un formato legible.",
+  "UDDI": "UDDI es un estándar para directorios de servicios web que permite registrar y descubrir servicios."
+};
 
-fetch('data.json')
-  .then(response => response.json())
-  .then(json => data = json);
+function buscar() {
+  const termino = document.getElementById("busqueda").value.trim().toUpperCase();
+  const resultados = document.getElementById("resultados");
+  resultados.innerHTML = "";
 
-function buscarTermino() {
-  const input = document.getElementById('searchInput').value.toLowerCase();
-  const resultados = data.filter(item => item.termino.toLowerCase().includes(input));
-
-  mostrarResultados(resultados);
-}
-
-function borrarBusqueda() {
-  document.getElementById('searchInput').value = '';
-  document.getElementById('resultados').innerHTML = '';
-}
-
-function mostrarTodo() {
-  mostrarResultados(data);
-}
-
-function mostrarResultados(resultados) {
-  const div = document.getElementById('resultados');
-  if (resultados.length === 0) {
-    div.innerHTML = '<p>No se encontraron resultados.</p>';
-    return;
+  if (termino && conceptos[termino]) {
+    const li = document.createElement("li");
+    li.textContent = conceptos[termino];
+    resultados.appendChild(li);
+  } else {
+    resultados.innerHTML = "<li>No se encontraron resultados.</li>";
   }
-
-  div.innerHTML = resultados.map(item => `
-    <div>
-      <strong>${item.termino}</strong>: ${item.definicion}
-      <br><em>Fuente:</em> ${item.fuente}
-    </div>
-    <hr>
-  `).join('');
 }
 
-// Modal bibliografía
+function borrar() {
+  document.getElementById("busqueda").value = "";
+  document.getElementById("resultados").innerHTML = "";
+  document.getElementById("bibliografia").style.display = "none";
+}
+
+function verTodos() {
+  const resultados = document.getElementById("resultados");
+  resultados.innerHTML = "";
+  for (const termino in conceptos) {
+    const li = document.createElement("li");
+    li.innerHTML = `<strong>${termino}</strong>: ${conceptos[termino]}`;
+    resultados.appendChild(li);
+  }
+  document.getElementById("bibliografia").style.display = "none";
+}
+
 function mostrarBibliografia() {
-  document.getElementById('modalBiblio').showModal();
+  const bib = document.getElementById("bibliografia");
+  bib.style.display = bib.style.display === "none" ? "block" : "none";
 }
-document.getElementById('closeBiblio').addEventListener('click', () => {
-  document.getElementById('modalBiblio').close();
-});

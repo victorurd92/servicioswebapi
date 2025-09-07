@@ -1,115 +1,115 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  padding: 0;
-  background: url('assets/fondo-animado.png') no-repeat center center fixed;
+  font-family: Arial, sans-serif;
+  background-image: url('https://www.intep.edu.co/images/banners/bannerbiblioteca2.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  animation: ondulacion 15s ease-in-out infinite alternate;
+}
+
+@keyframes ondulacion {
+  0% {
+    background-position: center 0px;
+  }
+  100% {
+    background-position: center 20px;
+  }
 }
 
 header {
-  background-color: rgba(0, 56, 136, 0.85);
-  color: white;
-  text-align: left;
-  padding: 1em 2em;
-  display: flex;
-  align-items: center;
-  gap: 1em;
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.85);
 }
 
 .logo {
-  width: 60px;
-  height: auto;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  width: 80px;
+}
+
+h1 {
+  font-size: 2.2em;
+  margin: 10px 0 5px;
+}
+
+.subtitulo {
+  font-style: italic;
+  color: #333;
+  margin: 0;
 }
 
 main {
   display: flex;
   justify-content: center;
-  padding: 2em;
+  align-items: center;
+  min-height: 70vh;
+  padding: 20px;
 }
 
 .panel {
-  background-color: rgba(255, 255, 255, 0.92);
+  background-color: rgba(255, 255, 255, 0.96);
+  padding: 30px;
   border-radius: 15px;
-  padding: 2em;
-  max-width: 600px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  max-width: 480px;
   width: 100%;
   text-align: center;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.panel h2 {
+  margin-bottom: 20px;
+  color: #222;
 }
 
 input[type="text"] {
-  width: 80%;
-  padding: 0.8em;
-  margin-bottom: 1em;
-  border: 1px solid #ccc;
+  width: 90%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border: 2px solid #ccc;
   border-radius: 8px;
 }
 
-.button-group {
+.botones {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
-  margin-bottom: 1.5em;
 }
 
-.btn {
-  padding: 10px 16px;
+.botones button {
+  padding: 10px 15px;
   border: none;
-  border-radius: 6px;
-  color: white;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
+  transition: background 0.3s;
 }
 
-.btn.primary { background-color: #2196F3; }
-.btn.danger { background-color: #f44336; }
-.btn.success { background-color: #4CAF50; }
-.btn.secondary { background-color: #673AB7; }
-.btn.info { background-color: #03A9F4; }
+.botones button:nth-child(1) { background-color: #00bcd4; color: white; }
+.botones button:nth-child(2) { background-color: #f44336; color: white; }
+.botones button:nth-child(3) { background-color: #2196f3; color: white; }
+.botones button:nth-child(4) { background-color: #673ab7; color: white; }
+.botones button:nth-child(5) { background-color: #4caf50; color: white; }
 
-.result-box {
-  text-align: left;
-  padding: 1em;
-  background-color: #f0f8ff;
-  border-radius: 8px;
-  min-height: 60px;
+.botones button:hover {
+  opacity: 0.9;
+}
+
+#resultados {
+  margin-top: 20px;
+  list-style-type: none;
+  padding: 0;
 }
 
 footer {
-  background-color: #003878;
+  background-color: #005baa;
   color: white;
   text-align: center;
-  padding: 1em;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-}
-
-/* Modal */
-.modal {
-  border: none;
-  padding: 0;
-  border-radius: 10px;
-  box-shadow: 0 0 15px #0008;
-}
-
-.modal-card {
-  padding: 20px;
-  background: #fff;
-  max-width: 400px;
-}
-
-.biblio-list {
-  text-align: left;
-  padding-left: 20px;
-}
-
-.biblio-list li {
-  margin-bottom: 10px;
-}
-
-.modal-actions {
-  margin-top: 1em;
-  text-align: right;
+  padding: 12px;
+  font-size: 0.95em;
 }
