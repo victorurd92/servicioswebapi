@@ -1,42 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Servicios Web - API</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Servicios Web - API | Proyecto INTEP</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <img src="logo-intep.png" alt="Logo INTEP" class="logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/INTEP_Logo.png" alt="Logo INTEP" class="logo" />
     <h1>Servicios Web - API</h1>
-    <p>Proyecto académico - INTEP</p>
+    <h2>Proyecto académico - INTEP</h2>
   </header>
 
   <main>
-    <section class="buscador">
-      <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
+    <section class="search-box">
+      <h3>Buscador de Conceptos (REST, SOAP, JSON, XML)</h3>
       <input type="text" id="searchInput" placeholder="Escribe un término o usa los botones">
-      <div class="botones">
-        <button id="btnBuscar" class="btn naranja">Buscar</button>
-        <button id="btnBorrar" class="btn azul">Borrar</button>
-        <button id="btnCampus" class="btn verde">Ir al Campus INTEP</button>
-        <button id="btnVerTodos" class="btn imagen">
-          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="Ver todos" width="30">
-          Ver todos
-        </button>
-        <button id="btnBibliografia" class="btn morado">Bibliografía</button>
+      <div class="buttons">
+        <button id="btnVerTodos">➕ Ver Todos</button>
+        <button id="btnBuscar">Buscar</button>
+        <button id="btnBorrar">Borrar</button>
+        <button id="btnBibliografia">📚 Bibliografía</button>
+        <button id="btnCampus">Ir al Campus INTEP</button>
       </div>
-      <p id="resultado"></p>
+      <div id="resultado"></div>
+      <div id="enlacesBibliografia" class="bibliografia" style="display: none;">
+        <ul>
+          <li><a href="https://aws.amazon.com/es/what-is/api/" target="_blank">¿Qué es una API? - AWS</a></li>
+          <li><a href="https://www.redhat.com/es/topics/api/what-are-application-programming-interfaces" target="_blank">¿Qué es una API? - Red Hat</a></li>
+          <li><a href="https://www.ibm.com/cloud/learn/api" target="_blank">Guía de APIs - IBM</a></li>
+          <li><a href="https://es.wikipedia.org/wiki/SOAP" target="_blank">SOAP - Wikipedia</a></li>
+          <li><a href="https://developer.mozilla.org/es/docs/Learn/JavaScript/Objects/JSON" target="_blank">JSON - MDN</a></li>
+        </ul>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p><strong>Autores:</strong> Víctor Danilo Urdinola Aponte – Pablo Andrés García Acosta</p>
-    <p><em>Materia:</em> Servicios Web</p>
-    <p>© INTEP - Proyecto académico</p>
+    <p><strong>Autores:</strong> Víctor Danilo Urdinola Aponte - Pablo Andrés García Acosta - Juan Manuel Diaz</p>
+    <p><strong>Materia:</strong> Servicios Web</p>
+    <p>© INTEP | Proyecto académico</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="scripts.js"></script>
 </body>
 </html>

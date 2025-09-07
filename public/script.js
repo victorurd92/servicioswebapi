@@ -1,32 +1,44 @@
-// Botón Buscar
 document.getElementById("btnBuscar").addEventListener("click", () => {
   const termino = document.getElementById("searchInput").value.toLowerCase();
-  const resultado = document.getElementById("resultado");
+  let resultado = "";
 
-  if (termino === "rest") resultado.textContent = "REST: Arquitectura que utiliza HTTP para la comunicación.";
-  else if (termino === "soap") resultado.textContent = "SOAP: Protocolo basado en XML para intercambiar información estructurada.";
-  else if (termino === "json") resultado.textContent = "JSON: Formato ligero de intercambio de datos.";
-  else if (termino === "xml") resultado.textContent = "XML: Lenguaje de marcado para estructurar datos.";
-  else resultado.textContent = "No se encontró el concepto.";
+  switch (termino) {
+    case "rest":
+      resultado = "REST es un estilo de arquitectura para diseñar servicios web.";
+      break;
+    case "soap":
+      resultado = "SOAP es un protocolo para intercambiar información estructurada.";
+      break;
+    case "json":
+      resultado = "JSON es un formato ligero de intercambio de datos.";
+      break;
+    case "xml":
+      resultado = "XML es un lenguaje de marcado que define reglas para codificar documentos.";
+      break;
+    default:
+      resultado = "Concepto no encontrado. Prueba con REST, SOAP, JSON o XML.";
+  }
+
+  document.getElementById("resultado").textContent = resultado;
+  document.getElementById("enlacesBibliografia").style.display = "none";
 });
 
-// Botón Borrar
 document.getElementById("btnBorrar").addEventListener("click", () => {
   document.getElementById("searchInput").value = "";
   document.getElementById("resultado").textContent = "";
+  document.getElementById("enlacesBibliografia").style.display = "none";
 });
 
-// Botón Ir al Campus
 document.getElementById("btnCampus").addEventListener("click", () => {
   window.open("https://campus.intep.edu.co", "_blank");
 });
 
-// Botón Ver Todos
 document.getElementById("btnVerTodos").addEventListener("click", () => {
-  window.open("https://www.w3schools.com/xml/xml_soap.asp", "_blank");
+  document.getElementById("resultado").textContent =
+    "REST: estilo de arquitectura para servicios web. | SOAP: protocolo para intercambio estructurado. | JSON: formato ligero de datos. | XML: lenguaje de marcado estructurado.";
+  document.getElementById("enlacesBibliografia").style.display = "none";
 });
 
-// Botón Bibliografía
 document.getElementById("btnBibliografia").addEventListener("click", () => {
-  window.open("https://aws.amazon.com/es/what-is/api/", "_blank");
+  document.getElementById("enlacesBibliografia").style.display = "block";
 });
