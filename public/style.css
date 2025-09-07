@@ -1,5 +1,4 @@
 body {
-  margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background: url('fondo-api.jpg') no-repeat center center fixed;
   background-size: cover;
@@ -7,7 +6,7 @@ body {
 }
 
 header {
-  background-color: #005b96cc;
+  background-color: #065b9c;
   text-align: center;
   color: white;
   padding: 20px;
@@ -15,69 +14,78 @@ header {
 
 .logo {
   width: 80px;
-  float: left;
+  height: auto;
   margin-left: 20px;
 }
 
 main {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  margin-top: 40px;
 }
 
 .buscador {
-  background-color: #ffffffdd;
-  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.95);
   padding: 30px;
-  max-width: 500px;
-  width: 100%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
 input[type="text"] {
-  width: 100%;
+  width: 80%;
   padding: 10px;
-  font-size: 16px;
-  margin: 10px 0;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 button {
-  margin: 5px;
   padding: 10px 15px;
-  font-size: 14px;
+  margin: 5px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
-.botones-superiores button {
+#btnBuscar {
   background-color: #007BFF;
   color: white;
 }
+#btnBuscar:hover {
+  background-color: #0056b3;
+}
 
-.botones-inferiores button {
-  background-color: #6c63ff;
+#btnBorrar {
+  background-color: #dc3545;
   color: white;
 }
-
-#resultados {
-  margin-top: 20px;
-  text-align: left;
+#btnBorrar:hover {
+  background-color: #a71d2a;
 }
 
-footer {
-  background-color: #005b96cc;
+#btnVerTodos {
+  background-color: #17a2b8;
   color: white;
-  text-align: center;
-  padding: 10px;
-  margin-top: 30px;
+}
+#btnVerTodos:hover {
+  background-color: #117a8b;
 }
 
-a {
-  color: #0044aa;
+#btnBibliografia {
+  background-color: #6f42c1;
+  color: white;
+}
+#btnBibliografia:hover {
+  background-color: #4c2a9c;
 }
 
-.oculto {
-  display: none;
+#btnCampus {
+  background-color: #28a745;
+  color: white;
+}
+#btnCampus:hover {
+  background-color: #1e7e34;
 }
