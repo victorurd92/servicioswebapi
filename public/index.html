@@ -3,44 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Servicios Web - API | Proyecto INTEP</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Servicios Web - API</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/INTEP_Logo.png" alt="Logo INTEP" class="logo" />
+    <img src="https://intep.edu.co/img/logo_intep_azul.png" alt="INTEP" class="logo"/>
     <h1>Servicios Web - API</h1>
-    <h2>Proyecto académico - INTEP</h2>
+    <p>Proyecto académico - INTEP</p>
   </header>
 
   <main>
-    <section class="search-box">
-      <h3>Buscador de Conceptos (REST, SOAP, JSON, XML)</h3>
-      <input type="text" id="searchInput" placeholder="Escribe un término o usa los botones">
-      <div class="buttons">
-        <button id="btnVerTodos">➕ Ver Todos</button>
-        <button id="btnBuscar">Buscar</button>
-        <button id="btnBorrar">Borrar</button>
-        <button id="btnBibliografia">📚 Bibliografía</button>
-        <button id="btnCampus">Ir al Campus INTEP</button>
+    <section class="buscador">
+      <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
+      <input type="text" id="searchInput" placeholder="Escribe un término o usa los botones"/>
+
+      <div class="botones">
+        <button id="btnBuscar" class="btn-buscar">Buscar</button>
+        <button id="btnBorrar" class="btn-borrar">Borrar</button>
+        <button id="btnCampus" class="btn-campus">Ir al Campus INTEP</button>
       </div>
-      <div id="resultado"></div>
-      <div id="enlacesBibliografia" class="bibliografia" style="display: none;">
+
+      <div class="extra-botones">
+        <button id="btnVerTodos" class="btn-ver-todos">
+          <img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" alt="icono" class="icono"/>
+          Ver todos
+        </button>
+        <button id="btnBibliografia" class="btn-bibliografia">Bibliografía</button>
+      </div>
+
+      <div id="resultado" class="resultado"></div>
+
+      <div id="panelDefiniciones" class="panel-definiciones" style="display: none;">
+        <h4>Definiciones</h4>
         <ul>
-          <li><a href="https://aws.amazon.com/es/what-is/api/" target="_blank">¿Qué es una API? - AWS</a></li>
-          <li><a href="https://www.redhat.com/es/topics/api/what-are-application-programming-interfaces" target="_blank">¿Qué es una API? - Red Hat</a></li>
-          <li><a href="https://www.ibm.com/cloud/learn/api" target="_blank">Guía de APIs - IBM</a></li>
-          <li><a href="https://es.wikipedia.org/wiki/SOAP" target="_blank">SOAP - Wikipedia</a></li>
-          <li><a href="https://developer.mozilla.org/es/docs/Learn/JavaScript/Objects/JSON" target="_blank">JSON - MDN</a></li>
+          <li><strong>REST:</strong> Estilo de arquitectura para servicios web basada en recursos accesibles por URL usando HTTP.</li>
+          <li><strong>SOAP:</strong> Protocolo basado en XML para el intercambio estructurado de información en servicios web.</li>
+          <li><strong>JSON:</strong> Formato ligero de intercambio de datos, fácil de leer y escribir, utilizado comúnmente en APIs.</li>
+          <li><strong>XML:</strong> Lenguaje de marcas extensible para codificar documentos en un formato legible tanto por humanos como por máquinas.</li>
         </ul>
       </div>
     </section>
   </main>
 
   <footer>
-    <p><strong>Autores:</strong> Víctor Danilo Urdinola Aponte - Pablo Andrés García Acosta - Juan Manuel Diaz</p>
-    <p><strong>Materia:</strong> Servicios Web</p>
-    <p>© INTEP | Proyecto académico</p>
+    <p><strong>Autores:</strong> Víctor Danilo Urdinola Aponte – Pablo Andrés García Acosta - Juan Manuel Diaz</p>
+    <p><em>Materia:</em> Servicios Web</p>
+    <p>© INTEP - Proyecto académico</p>
   </footer>
 
   <script src="scripts.js"></script>
