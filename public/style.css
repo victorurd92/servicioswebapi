@@ -1,109 +1,83 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f4f4;
-  position: relative;
-}
-
-.logo-intep {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 80px;
+  background: url('img/fondo-animado.gif') no-repeat center center fixed;
+  background-size: cover;
+  color: #222;
 }
 
 header {
-  background-color: #005f99;
-  color: white;
+  background-color: #005b96cc;
   text-align: center;
-  padding: 2em 1em 3em;
-  position: relative;
+  color: white;
+  padding: 20px;
 }
 
-.background-wave {
-  background: url('https://i.ibb.co/vcSkp5y/animated-waves.gif') no-repeat center center fixed;
-  background-size: cover;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  z-index: -1;
-  opacity: 0.15;
+.logo {
+  width: 80px;
+  float: left;
+  margin-left: 20px;
 }
 
 main {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: -3em;
-  padding: 2em;
+  padding: 20px;
 }
 
-.panel {
-  background-color: white;
-  padding: 2em;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
-  max-width: 600px;
+.buscador {
+  background-color: #ffffffdd;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 500px;
   width: 100%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  text-align: center;
 }
 
-.search-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-
-.search-section input {
-  padding: 0.8em;
-  font-size: 1em;
+input[type="text"] {
   width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px 0;
 }
 
-.search-section button {
-  padding: 0.7em;
-  font-size: 1em;
+button {
+  margin: 5px;
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  margin-right: 5px;
 }
 
-.button-group {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1.5em;
-  flex-wrap: wrap;
-  gap: 0.5em;
-}
-
-.ver-todos {
-  background-color: #17b6d9;
+.botones-superiores button {
+  background-color: #007BFF;
   color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 0.7em 1em;
 }
 
-.bibliografia {
-  background-color: #7f48ca;
+.botones-inferiores button {
+  background-color: #6c63ff;
   color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 0.7em 1em;
 }
 
-.campus-intep {
-  background-color: #2ea646;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 0.7em 1em;
+#resultados {
+  margin-top: 20px;
+  text-align: left;
 }
 
 footer {
-  text-align: center;
-  background-color: #005f99;
+  background-color: #005b96cc;
   color: white;
-  padding: 2em 1em;
-  margin-top: 2em;
+  text-align: center;
+  padding: 10px;
+  margin-top: 30px;
+}
+
+a {
+  color: #0044aa;
+}
+
+.oculto {
+  display: none;
 }

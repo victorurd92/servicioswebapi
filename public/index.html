@@ -1,57 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicios Web - API</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Encabezado -->
   <header>
-    <img src="https://intep.edu.co/assets/images/intep/logo-intep-blanco.png" alt="INTEP Logo" class="logo-intep">
+    <img src="img/logo-intep.png" alt="Logo INTEP" class="logo">
     <h1>Servicios Web - API</h1>
     <p>Proyecto académico - INTEP</p>
   </header>
 
-  <!-- Fondo animado -->
-  <div class="background-wave"></div>
-
-  <!-- Contenedor del panel -->
   <main>
-    <div class="panel">
+    <div class="buscador">
       <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
-      <div class="search-section">
-        <input type="text" id="termino" placeholder="Escribe un término o usa la lista..." />
+      <input type="text" id="inputBusqueda" placeholder="Escribe un término o usa la lista...">
+      <div class="botones-superiores">
         <button onclick="buscar()">Buscar</button>
         <button onclick="borrar()">Borrar</button>
       </div>
-      <div class="button-group">
-        <button class="ver-todos" onclick="verTodos()">➕ Ver todos</button>
-        <button class="bibliografia" onclick="mostrarBibliografia()">Bibliografía</button>
-        <a href="https://campus.intep.edu.co" target="_blank">
-          <button class="campus-intep">Ir al Campus INTEP</button>
-        </a>
+      <div class="botones-inferiores">
+        <button onclick="verTodos()">+ Ver todos</button>
+        <button onclick="mostrarBibliografia()">Bibliografía</button>
+        <button onclick="window.open('https://campus.intep.edu.co', '_blank')">Ir al Campus INTEP</button>
       </div>
-      <div id="resultado"></div>
-      <div id="bibliografia" style="display:none;">
+      <div id="resultados"></div>
+      <div id="bibliografia" class="oculto">
         <h3>Bibliografía:</h3>
         <ul>
-          <li><a href="https://restfulapi.net/" target="_blank">https://restfulapi.net/</a></li>
-          <li><a href="https://www.w3schools.com/xml/" target="_blank">https://www.w3schools.com/xml/</a></li>
-          <li><a href="https://www.w3schools.com/js/js_json_intro.asp" target="_blank">https://www.w3schools.com/js/js_json_intro.asp</a></li>
-          <li><a href="https://www.soapui.org/learn/api/soap-vs-rest/" target="_blank">https://www.soapui.org/learn/api/soap-vs-rest/</a></li>
+          <li><a href="https://www.w3.org/TR/soap/" target="_blank">W3C - SOAP</a></li>
+          <li><a href="https://www.json.org/json-es.html" target="_blank">JSON - Oficial</a></li>
+          <li><a href="https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven" target="_blank">REST - Roy Fielding</a></li>
+          <li><a href="https://www.w3.org/XML/" target="_blank">XML - W3C</a></li>
+          <li><a href="https://www.w3.org/TR/wsdl" target="_blank">WSDL - W3C</a></li>
         </ul>
       </div>
     </div>
   </main>
 
-  <!-- Pie de página -->
   <footer>
     <p><strong>Autores:</strong> Víctor Danilo Urdinola Aponte – Pablo Andrés García Acosta – Juan Manuel Díaz</p>
     <p><em>Materia:</em> Servicios Web</p>
     <p>© INTEP - Proyecto académico</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

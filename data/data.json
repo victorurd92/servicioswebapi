@@ -1,23 +1,18 @@
 [
   {
     "termino": "REST",
-    "definicion": "REST es un estilo de arquitectura de software para construir servicios web ligeros basados en recursos.",
-    "fuente": "RESTful Web Services Cookbook (2010)"
+    "definicion": "REST es un estilo de arquitectura para diseñar servicios web.",
+    "fuente": "REST - Roy Fielding"
   },
   {
     "termino": "SOAP",
-    "definicion": "SOAP es un protocolo basado en XML para intercambio de mensajes estructurados en servicios web.",
-    "fuente": "Web Services: Concepts, Architectures and Applications (2005)"
-  },
-  {
-    "termino": "HTTP",
-    "definicion": "HTTP es el protocolo de comunicación que permite la transferencia de información en la web.",
-    "fuente": "RFC 2616: HTTP/1.1 (1999)"
+    "definicion": "SOAP es un protocolo para el intercambio estructurado de información.",
+    "fuente": "W3C - SOAP"
   },
   {
     "termino": "JSON",
-    "definicion": "JSON es un formato ligero de intercambio de datos, fácil de procesar por máquinas y legible por humanos.",
-    "fuente": "Introducing JSON (2006)"
+    "definicion": "JSON es un formato ligero de intercambio de datos.",
+    "fuente": "JSON - Oficial"
   },
   {
     "termino": "XML",

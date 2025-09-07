@@ -1,35 +1,44 @@
-const conceptos = {
-  "REST": "REST (Representational State Transfer) es un estilo de arquitectura de software que utiliza peticiones HTTP para acceder y manipular datos.",
-  "SOAP": "SOAP (Simple Object Access Protocol) es un protocolo estándar basado en XML para el intercambio de información estructurada en servicios web.",
-  "JSON": "JSON (JavaScript Object Notation) es un formato ligero de intercambio de datos, fácil de leer y escribir para humanos y máquinas.",
-  "XML": "XML (eXtensible Markup Language) es un lenguaje de marcado que define reglas para codificar documentos en formato que tanto humanos como máquinas puedan leer."
-};
+let data = [];
+
+fetch('data/data.json')
+  .then(response => response.json())
+  .then(json => data = json);
 
 function buscar() {
-  const termino = document.getElementById('termino').value.trim().toUpperCase();
-  const resultado = document.getElementById('resultado');
-  if (conceptos[termino]) {
-    resultado.innerHTML = `<p><strong>${termino}:</strong> "${conceptos[termino]}"</p>`;
-  } else {
-    resultado.innerHTML = `<p>No se encontró información para: <strong>${termino}</strong>.</p>`;
-  }
+  const termino = document.getElementById('inputBusqueda').value.toLowerCase();
+  const resultados = data.filter(item => item.termino.toLowerCase().includes(termino));
+  mostrarResultados(resultados);
 }
 
 function borrar() {
-  document.getElementById('termino').value = '';
-  document.getElementById('resultado').innerHTML = '';
+  document.getElementById('inputBusqueda').value = '';
+  document.getElementById('resultados').innerHTML = '';
+  document.getElementById('bibliografia').classList.add('oculto');
 }
 
 function verTodos() {
-  const resultado = document.getElementById('resultado');
-  let html = '';
-  for (let clave in conceptos) {
-    html += `<p><strong>${clave}:</strong> "${conceptos[clave]}"</p>`;
+  mostrarResultados(data);
+}
+
+function mostrarResultados(resultados) {
+  const div = document.getElementById('resultados');
+  div.innerHTML = '';
+  if (resultados.length === 0) {
+    div.innerHTML = '<p>No se encontraron resultados.</p>';
+  } else {
+    resultados.forEach(item => {
+      const concepto = `
+        <div>
+          <h3>${item.termino}</h3>
+          <p>${item.definicion}</p>
+          <p><strong>Fuente:</strong> ${item.fuente}</p>
+        </div>
+        <hr>`;
+      div.innerHTML += concepto;
+    });
   }
-  resultado.innerHTML = html;
 }
 
 function mostrarBibliografia() {
-  const biblio = document.getElementById('bibliografia');
-  biblio.style.display = biblio.style.display === 'none' ? 'block' : 'none';
+  document.getElementById('bibliografia').classList.toggle('oculto');
 }
