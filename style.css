@@ -1,83 +1,98 @@
-body {
+/* Fondo animado */
+body, html {
   margin: 0;
   padding: 0;
+  height: 100%;
   font-family: Arial, sans-serif;
-  background-image: url('fondo-api.jpg');
+  background: #f2f2f2;
+  overflow-x: hidden;
+}
+
+.background {
+  background: url("fondo-api") no-repeat center center fixed;
   background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  animation: animacionFondo 20s infinite linear;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  justify-content: center;
+@keyframes animacionFondo {
+  0% { background-position: center top; }
+  50% { background-position: center bottom; }
+  100% { background-position: center top; }
 }
 
-.form-box {
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 30px;
-  border-radius: 15px;
+/* Logo */
+.logo {
+  width: 100px;
+  margin: 10px auto;
+  display: block;
+}
+
+/* Encabezado */
+header {
   text-align: center;
-  box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
-  width: 90%;
+  color: #000;
+  margin-top: 20px;
+}
+
+.subtitulo {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Cuerpo */
+.content {
   max-width: 600px;
+  margin: 30px auto;
+  text-align: center;
+  padding: 20px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 10px;
 }
 
 input[type="text"] {
-  width: 80%;
   padding: 10px;
-  margin: 10px 0;
-  border-radius: 8px;
+  width: 80%;
+  margin-bottom: 15px;
+  border-radius: 5px;
   border: 1px solid #ccc;
-  text-align: center;
-}
-
-.button-row button,
-.button-column button {
-  padding: 10px 20px;
-  margin: 10px 5px;
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  width: 150px;
 }
 
 .button-row {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  margin: 10px 0;
 }
 
-.button-column {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-button:nth-child(1) { background-color: #007BFF; } /* Buscar */
-button:nth-child(2) { background-color: #DC3545; } /* Borrar */
-button:nth-child(3) { background-color: #17A2B8; } /* Ver todos */
-button:nth-child(4) { background-color: #28A745; } /* Campus INTEP */
-button:nth-child(5) { background-color: #6F42C1; } /* Bibliografía */
+button:nth-child(1) { background-color: #007BFF; color: white; }
+button:nth-child(2) { background-color: #28a745; color: white; }
+button:nth-child(3) { background-color: #dc3545; color: white; }
 
+/* Resultado */
+#resultado {
+  margin-top: 20px;
+  text-align: left;
+}
+
+/* Pie de página */
 footer {
-  background-color: rgba(0,0,0,0.7);
-  color: white;
   text-align: center;
-  padding: 15px;
+  padding: 20px;
+  color: white;
+  background: #003366;
   position: relative;
-  width: 100%;
-  margin-top: 30px;
-}
-
-.logo {
-  width: 50px;
-  vertical-align: middle;
-  margin-right: 10px;
+  margin-top: 50px;
+  border-radius: 10px 10px 0 0;
 }

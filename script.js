@@ -1,57 +1,48 @@
 function buscar() {
-  const input = document.getElementById('input').value.trim().toUpperCase();
-  const resultado = document.getElementById('resultado');
+  const valor = document.getElementById('inputData').value.toLowerCase();
+  let resultado = '';
 
-  let contenido = "";
-
-  switch (input) {
-    case 'REST':
-      contenido = "<b>REST</b> es un estilo de arquitectura de software para construir servicios web. <br><em>Referencia:</em> RESTful Web Services Cookbook (2010)";
-      break;
-    case 'SOAP':
-      contenido = "<b>SOAP</b> es un protocolo basado en XML para el intercambio de mensajes. <br><em>Referencia:</em> Understanding SOAP (2002)";
-      break;
-    case 'JSON':
-      contenido = "<b>JSON</b> es un formato ligero de intercambio de datos. <br><em>Referencia:</em> Introducing JSON (2013)";
-      break;
-    case 'XML':
-      contenido = "<b>XML</b> es un lenguaje de marcado para estructurar información. <br><em>Referencia:</em> XML Developer's Guide (2000)";
-      break;
-    case 'HTTP':
-      contenido = "<b>HTTP</b> es el protocolo base de comunicación en la web. <br><em>Referencia:</em> RFC2616 (HTTP/1.1)";
-      break;
-    default:
-      contenido = "Por favor, escribe REST, SOAP, JSON, XML o HTTP.";
+  if (valor.includes('rest')) {
+    resultado += '<h3>REST</h3><p>REST es un estilo arquitectónico...</p>';
+  }
+  if (valor.includes('soap')) {
+    resultado += '<h3>SOAP</h3><p>SOAP es un protocolo basado en XML...</p>';
+  }
+  if (valor.includes('json')) {
+    resultado += '<h3>JSON</h3><p>JSON es un formato ligero de intercambio de datos...</p>';
+  }
+  if (valor.includes('xml')) {
+    resultado += '<h3>XML</h3><p>XML es un lenguaje para estructurar información...</p>';
   }
 
-  resultado.innerHTML = `<div class='resultado'>${contenido}</div>`;
+  if (!resultado) {
+    resultado = '<p>No se encontraron resultados. Intenta con REST, SOAP, JSON o XML.</p>';
+  }
+
+  document.getElementById('resultado').innerHTML = resultado;
 }
 
 function borrar() {
-  document.getElementById('input').value = '';
+  document.getElementById('inputData').value = '';
   document.getElementById('resultado').innerHTML = '';
 }
 
 function verTodos() {
-  const resultado = document.getElementById('resultado');
-  resultado.innerHTML = `
-    <ul>
-      <li><strong>REST:</strong> Arquitectura para servicios web.</li>
-      <li><strong>SOAP:</strong> Protocolo basado en XML.</li>
-      <li><strong>JSON:</strong> Formato de intercambio de datos.</li>
-      <li><strong>XML:</strong> Lenguaje de marcado estructurado.</li>
-      <li><strong>HTTP:</strong> Protocolo de comunicación web.</li>
-    </ul>
+  document.getElementById('resultado').innerHTML = `
+    <h3>REST</h3><p>REST es un estilo arquitectónico...</p>
+    <h3>SOAP</h3><p>SOAP es un protocolo basado en XML...</p>
+    <h3>JSON</h3><p>JSON es un formato ligero de intercambio de datos...</p>
+    <h3>XML</h3><p>XML es un lenguaje para estructurar información...</p>
   `;
 }
 
 function mostrarBibliografia() {
-  const resultado = document.getElementById('resultado');
-  resultado.innerHTML = `
+  document.getElementById('resultado').innerHTML = `
+    <h3>Bibliografía</h3>
     <ul>
-      <li>Allamaraju, S. (2010). RESTful Web Services Cookbook.</li>
-      <li>Erl, T. (2005). Service-Oriented Architecture (SOA).</li>
-      <li>Hohpe, G., & Woolf, B. (2003). Enterprise Integration Patterns.</li>
+      <li>Allamaraju, S. (2010). RESTful Web Services.</li>
+      <li>Erl, T. (2009). Web Service Contract Design & Versioning for SOA.</li>
+      <li>Hohpe, G., Woolf, B. (2003). Enterprise Integration Patterns.</li>
       <li>Newman, S. (2015). Building Microservices.</li>
     </ul>
   `;
