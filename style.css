@@ -1,91 +1,83 @@
-* {
+body, html {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
+  height: 100%;
   font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background: url('fondo-api.jpg') no-repeat center center fixed;
+  background: #f4f4f4;
+}
+
+.background {
+  min-height: calc(100vh - 80px); /* Resta el espacio del footer */
+  background-image: url('fondo.png');
   background-size: cover;
-}
-
-header {
-  text-align: center;
-  padding: 20px;
-  color: white;
-  text-shadow: 1px 1px 4px #000;
-}
-
-.logo {
-  width: 80px;
-}
-
-main {
-  flex: 1;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: moverOndas 20s linear infinite alternate;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+@keyframes moverOndas {
+  0% { background-position: center top; }
+  100% { background-position: center bottom; }
+}
+
+.logo {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+.header {
+  text-align: center;
+  color: #003366;
+  margin-bottom: 20px;
 }
 
 .buscador {
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 25px;
   border-radius: 15px;
-  margin: 20px;
-  max-width: 600px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
   text-align: center;
 }
 
 .buscador input {
-  width: 90%;
   padding: 10px;
-  margin-bottom: 15px;
-  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
-.botones {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.btn {
+.buscador button {
   padding: 10px;
   border: none;
   border-radius: 8px;
   color: white;
   cursor: pointer;
-  font-size: 15px;
+  font-weight: bold;
 }
 
-.azul { background-color: #007BFF; }
-.rojo { background-color: #DC3545; }
-.celeste { background-color: #17A2B8; }
-.verde { background-color: #28A745; text-decoration: none; display: inline-block; text-align: center; }
-.morado { background-color: #6F42C1; }
+.buscador button:nth-child(2) { background-color: #007BFF; } /* Buscar */
+.buscador button:nth-child(3) { background-color: #dc3545; } /* Borrar */
+.buscador button:nth-child(4) { background-color: #17a2b8; } /* Ver todos */
+.buscador button:nth-child(5) { background-color: #28a745; } /* Campus INTEP */
+.buscador button:nth-child(6) { background-color: #6f42c1; } /* Bibliografía */
 
-#resultados {
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 20px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-  max-width: 600px;
-  width: 90%;
-}
-
-.concepto {
-  margin-bottom: 20px;
+#resultado {
+  margin-top: 10px;
+  color: #000;
+  font-size: 14px;
 }
 
 footer {
-  text-align: center;
-  padding: 15px;
+  background-color: #003366;
   color: white;
-  background-color: rgba(0, 0, 0, 0.5);
-  font-size: 14px;
-  margin-top: auto;
+  text-align: center;
+  padding: 15px 10px;
+  height: 80px;
 }
