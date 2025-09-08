@@ -1,42 +1,59 @@
-function buscarConcepto() {
-  const input = document.getElementById("busqueda").value.trim().toLowerCase();
-  const resultados = document.getElementById("resultados");
-  resultados.innerHTML = "";
+document.addEventListener("DOMContentLoaded", function () {
+  const input = document.getElementById("inputConcepto");
+  const resultado = document.getElementById("resultado");
 
-  if (input === "") {
-    resultados.innerHTML = "<p>Por favor ingresa un término.</p>";
-    return;
-  }
+  let conceptos = [];
 
-  fetch("data/conceptos.json")
-    .then(res => res.json())
-    .then(data => {
-      const concepto = data.find(item => item.termino.toLowerCase() === input);
-      if (concepto) {
-        resultados.innerHTML = `<h3>${concepto.termino}</h3><p>${concepto.definicion}</p>`;
-      } else {
-        resultados.innerHTML = `<p>No se encontró el término "<strong>${input}</strong>".</p>`;
+  // Cargar los conceptos desde conceptos.json
+  fetch("conceptos.json")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("No se pudo cargar el archivo de conceptos.");
       }
+      return response.json();
     })
-    .catch(err => {
-      console.error("Error al cargar conceptos:", err);
-      resultados.innerHTML = "<p>Error al cargar los conceptos.</p>";
+    .then((data) => {
+      conceptos = data;
+      resultado.textContent = "Conceptos cargados correctamente.";
+      resultado.style.color = "green";
+    })
+    .catch((error) => {
+      resultado.textContent = "Error al cargar los conceptos.";
+      resultado.style.color = "red";
     });
-}
 
-function limpiarBusqueda() {
-  document.getElementById("busqueda").value = "";
-  document.getElementById("resultados").innerHTML = "";
-}
+  // Buscar
+  document.getElementById("btnBuscar").addEventListener("click", function () {
+    const termino = input.value.trim().toLowerCase();
+    if (!termino) return;
 
-function verTodos() {
-  window.location.href = "data/conceptos.json";
-}
+    const encontrados = conceptos.filter((c) =>
+      c.concepto.toLowerCase().includes(termino)
+    );
 
-function irBibliografia() {
-  window.location.href = "data/bibliografia.html";
-}
+    if (encontrados.length > 0) {
+      resultado.innerHTML = encontrados
+        .map((c) => `<p><strong>${c.concepto}:</strong> ${c.definicion}</p>`)
+        .join("");
+    } else {
+      resultado.innerHTML = "<p>No se encontraron resultados.</p>";
+    }
+  });
 
-function irCampus() {
-  window.open("https://campus.intep.edu.co", "_blank");
-}
+  // Ver todos
+  document.getElementById("btnVerTodos").addEventListener("click", function () {
+    if (conceptos.length > 0) {
+      resultado.innerHTML = conceptos
+        .map((c) => `<p><strong>${c.concepto}:</strong> ${c.definicion}</p>`)
+        .join("");
+    } else {
+      resultado.innerHTML = "<p>No hay conceptos disponibles.</p>";
+    }
+  });
+
+  // Borrar
+  document.getElementById("btnBorrar").addEventListener("click", function () {
+    input.value = "";
+    resultado.innerHTML = "";
+  });
+});
