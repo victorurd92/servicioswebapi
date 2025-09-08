@@ -1,77 +1,88 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
   background-image: url('fondo-api.jpg');
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
-}
-
-header {
+  background-attachment: fixed;
+  color: #fff;
   text-align: center;
-  background-color: #004AAD;
-  color: white;
-  padding: 10px;
 }
 
-header img {
-  height: 60px;
+.logo {
+  width: 80px;
   margin-top: 10px;
 }
 
-main {
-  background-color: rgba(255, 255, 255, 0.9);
-  margin: 40px auto;
+header {
+  background-color: rgba(0, 0, 128, 0.8);
+  padding: 20px 0;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.subtitulo {
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+.buscador {
+  background-color: rgba(255, 255, 255, 0.95);
   padding: 20px;
+  margin: 40px auto;
+  width: 90%;
   max-width: 500px;
-  border-radius: 10px;
-  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 0 10px #00000055;
+  color: #000;
+}
+
+.buscador h2 {
+  margin-bottom: 20px;
 }
 
 input[type="text"] {
-  width: 80%;
   padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 5px;
+  width: 80%;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
 .botones button {
-  margin: 5px;
   padding: 10px 15px;
+  margin: 5px;
   border: none;
-  color: white;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: bold;
 }
 
-#btnVerTodos { background-color: #00BCD4; }
-#btnBuscar { background-color: #2196F3; }
-#btnBorrar { background-color: #F44336; }
-#btnBibliografia { background-color: #673AB7; }
-#btnCampus { background-color: #4CAF50; }
+button {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-rojo {
+  background-color: #dc3545;
+}
+
+.btn-verde {
+  background-color: #28a745;
+}
+
+.btn-morado {
+  background-color: #6f42c1;
+}
 
 footer {
-  text-align: center;
-  color: #fff;
-  background-color: #004AAD;
-  padding: 15px;
-  margin-top: 20px;
-  line-height: 1.6;
-}
-
-.modal {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex; align-items: center; justify-content: center;
-  z-index: 9999;
-}
-
-.modal-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 500px;
-  text-align: left;
+  background-color: rgba(0, 0, 128, 0.8);
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  color: white;
 }

@@ -2,36 +2,37 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Servicios Web - API</title>
   <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
 </head>
 <body>
-  <div class="background">
-    <header>
-      <img src="logo-intep.png" alt="Logo INTEP">
-      <h1>Servicios Web - API</h1>
-      <h2>Proyecto académico - INTEP</h2>
-    </header>
+  <header>
+    <img src="logo-intep.png" alt="Logo INTEP" class="logo" />
+    <h1>Servicios Web - API</h1>
+    <p class="subtitulo">Proyecto académico INTEP</p>
+  </header>
 
-    <main>
-      <h3>Buscador de Conceptos (REST, SOAP, JSON, XML)</h3>
-      <input type="text" id="termino" placeholder="Escribe un término o usa la lista...">
+  <main>
+    <div class="buscador">
+      <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
+      <input type="text" id="busqueda" placeholder="Escribe un término..." />
       <div class="botones">
-        <button id="btnVerTodos">+ Ver todos</button>
-        <button id="btnBuscar">Buscar</button>
-        <button id="btnBorrar">Borrar</button>
-        <button id="btnBibliografia">Bibliografía</button>
-        <a href="https://campus.intep.edu.co" target="_blank"><button id="btnCampus">Ir al Campus INTEP</button></a>
+        <button onclick="buscarConcepto()">Buscar</button>
+        <button onclick="limpiarBusqueda()" class="btn-rojo">Borrar</button>
+        <button onclick="verTodos()">+ Ver todos</button>
+        <button onclick="irBibliografia()" class="btn-morado">Bibliografía</button>
+        <button onclick="irCampus()" class="btn-verde">Ir al Campus INTEP</button>
       </div>
-      <div id="resultado"></div>
-    </main>
+      <div id="resultados"></div>
+    </div>
+  </main>
 
-    <footer>
-      © 2025 - Proyecto académico INTEP <br>
-      Desarrollado por: Victor Danilo Urdinola Aponte, Pablo Andrés García Acosta, Juan Manuel Díaz Martínez
-    </footer>
-  </div>
+  <footer>
+    <p>&copy; 2025 - Proyecto académico INTEP</p>
+    <p>Presentado por Victor Danilo Urdinola Aponte</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
