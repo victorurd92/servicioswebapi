@@ -1,74 +1,83 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
-  background: url('https://i.ibb.co/y6mRn6C/fondo-intep.png') no-repeat center center fixed;
+  background-image: url('fondo-api.jpg');
   background-size: cover;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .container {
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 20px 0;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+.form-box {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 600px;
+}
+
+input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
   text-align: center;
 }
 
-.title-box {
-  margin-bottom: 20px;
-}
-
-.search-box {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 0 10px #aaa;
-  max-width: 400px;
-  width: 100%;
-}
-
-.search-box input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  font-size: 16px;
-}
-
-.btn-group button {
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0;
-  font-size: 14px;
+.button-row button,
+.button-column button {
+  padding: 10px 20px;
+  margin: 10px 5px;
   border: none;
-  border-radius: 6px;
-  color: #fff;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
+  width: 150px;
 }
 
-.btn-group button:nth-child(1) { background-color: #007BFF; }
-.btn-group button:nth-child(2) { background-color: #dc3545; }
-.btn-group button:nth-child(3) { background-color: #17a2b8; }
-.btn-group button:nth-child(4) { background-color: #28a745; }
-.btn-group button:nth-child(5) { background-color: #6f42c1; }
-
-.resultado {
-  margin-top: 20px;
-  background: #ffffffd8;
-  padding: 20px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 600px;
-  box-shadow: 0 0 8px #999;
+.button-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
+
+.button-column {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+button:nth-child(1) { background-color: #007BFF; } /* Buscar */
+button:nth-child(2) { background-color: #DC3545; } /* Borrar */
+button:nth-child(3) { background-color: #17A2B8; } /* Ver todos */
+button:nth-child(4) { background-color: #28A745; } /* Campus INTEP */
+button:nth-child(5) { background-color: #6F42C1; } /* Bibliografía */
 
 footer {
-  background-color: #007BFF;
+  background-color: rgba(0,0,0,0.7);
   color: white;
   text-align: center;
   padding: 15px;
-  font-size: 14px;
-  margin-top: auto;
+  position: relative;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.logo {
+  width: 50px;
+  vertical-align: middle;
+  margin-right: 10px;
 }

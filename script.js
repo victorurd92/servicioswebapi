@@ -1,44 +1,58 @@
 function buscar() {
-  const input = document.getElementById("inputConcepto").value.toLowerCase();
-  const resultado = document.getElementById("resultado");
+  const input = document.getElementById('input').value.trim().toUpperCase();
+  const resultado = document.getElementById('resultado');
 
-  const conceptos = {
-    rest: "REST es un estilo de arquitectura software para construir servicios web. Fuente: RESTful Web Services Cookbook (2010)",
-    soap: "SOAP es un protocolo para el intercambio de información estructurada. Fuente: Thomas Erl (2009)",
-    json: "JSON es un formato ligero de intercambio de datos. Fuente: Allamaraju (2010)",
-    xml: "XML es un lenguaje de marcado que define un conjunto de reglas para codificar documentos. Fuente: Allamaraju (2010)"
-  };
+  let contenido = "";
 
-  resultado.innerHTML = conceptos[input] || "Concepto no encontrado. Intenta con REST, SOAP, JSON o XML.";
+  switch (input) {
+    case 'REST':
+      contenido = "<b>REST</b> es un estilo de arquitectura de software para construir servicios web. <br><em>Referencia:</em> RESTful Web Services Cookbook (2010)";
+      break;
+    case 'SOAP':
+      contenido = "<b>SOAP</b> es un protocolo basado en XML para el intercambio de mensajes. <br><em>Referencia:</em> Understanding SOAP (2002)";
+      break;
+    case 'JSON':
+      contenido = "<b>JSON</b> es un formato ligero de intercambio de datos. <br><em>Referencia:</em> Introducing JSON (2013)";
+      break;
+    case 'XML':
+      contenido = "<b>XML</b> es un lenguaje de marcado para estructurar información. <br><em>Referencia:</em> XML Developer's Guide (2000)";
+      break;
+    case 'HTTP':
+      contenido = "<b>HTTP</b> es el protocolo base de comunicación en la web. <br><em>Referencia:</em> RFC2616 (HTTP/1.1)";
+      break;
+    default:
+      contenido = "Por favor, escribe REST, SOAP, JSON, XML o HTTP.";
+  }
+
+  resultado.innerHTML = `<div class='resultado'>${contenido}</div>`;
 }
 
 function borrar() {
-  document.getElementById("inputConcepto").value = "";
-  document.getElementById("resultado").innerHTML = "";
+  document.getElementById('input').value = '';
+  document.getElementById('resultado').innerHTML = '';
 }
 
 function verTodos() {
-  const resultado = document.getElementById("resultado");
+  const resultado = document.getElementById('resultado');
   resultado.innerHTML = `
-    <strong>REST:</strong> REST es un estilo de arquitectura software para construir servicios web. Fuente: RESTful Web Services Cookbook (2010)<br><br>
-    <strong>SOAP:</strong> SOAP es un protocolo para el intercambio de información estructurada. Fuente: Thomas Erl (2009)<br><br>
-    <strong>JSON:</strong> JSON es un formato ligero de intercambio de datos. Fuente: Allamaraju (2010)<br><br>
-    <strong>XML:</strong> XML es un lenguaje de marcado que define un conjunto de reglas para codificar documentos. Fuente: Allamaraju (2010)
+    <ul>
+      <li><strong>REST:</strong> Arquitectura para servicios web.</li>
+      <li><strong>SOAP:</strong> Protocolo basado en XML.</li>
+      <li><strong>JSON:</strong> Formato de intercambio de datos.</li>
+      <li><strong>XML:</strong> Lenguaje de marcado estructurado.</li>
+      <li><strong>HTTP:</strong> Protocolo de comunicación web.</li>
+    </ul>
   `;
 }
 
-function irCampus() {
-  window.open("https://campus.intep.edu.co", "_blank");
-}
-
 function mostrarBibliografia() {
-  const resultado = document.getElementById("resultado");
+  const resultado = document.getElementById('resultado');
   resultado.innerHTML = `
-    <strong>Bibliografía:</strong><br>
-    - Allamaraju, S. (2010). RESTful Web Services Cookbook.<br>
-    - Erl, T. (2005). Service-Oriented Architecture (SOA).<br>
-    - Erl, T. (2009). Web Service Contract Design and Versioning for SOA.<br>
-    - Hohpe, G., & Woolf, B. (2003). Enterprise Integration Patterns.<br>
-    - Newman, S. (2015). Building Microservices.
+    <ul>
+      <li>Allamaraju, S. (2010). RESTful Web Services Cookbook.</li>
+      <li>Erl, T. (2005). Service-Oriented Architecture (SOA).</li>
+      <li>Hohpe, G., & Woolf, B. (2003). Enterprise Integration Patterns.</li>
+      <li>Newman, S. (2015). Building Microservices.</li>
+    </ul>
   `;
 }
