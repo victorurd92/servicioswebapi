@@ -4,21 +4,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let conceptos = [];
 
-  // Cargar conceptos desde data.json
   fetch("data.json")
     .then((res) => res.json())
     .then((data) => {
       conceptos = data;
-      resultado.innerHTML = "<p style='color:green'>Conceptos cargados correctamente.</p>";
+      console.log("Conceptos cargados correctamente");
     })
-    .catch(() => {
+    .catch((err) => {
       resultado.innerHTML = "<p style='color:red'>Error al cargar los conceptos.</p>";
+      console.error(err);
     });
 
-  // Buscar por término
   document.getElementById("btnBuscar").addEventListener("click", () => {
     const texto = input.value.toLowerCase().trim();
-    if (texto === "") return;
+    if (!texto) return;
 
     const encontrados = conceptos.filter(c =>
       c.termino.toLowerCase().includes(texto)
@@ -33,38 +32,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Mostrar todos
   document.getElementById("btnVerTodos").addEventListener("click", () => {
-    if (conceptos.length === 0) {
-      resultado.innerHTML = "<p>No hay conceptos cargados.</p>";
-      return;
-    }
     resultado.innerHTML = conceptos.map(c => `
       <p><strong>${c.termino}</strong>: ${c.definicion}<br><em>Fuente: ${c.fuente}</em></p>
     `).join("");
   });
 
-  // Limpiar
   document.getElementById("btnBorrar").addEventListener("click", () => {
     input.value = "";
     resultado.innerHTML = "";
   });
 
-  // Bibliografía
   document.getElementById("btnBibliografia").addEventListener("click", () => {
     resultado.innerHTML = `
       <h3>Bibliografía</h3>
       <ul>
-        <li>Allamaraju, S. (2010). RESTful Web Services. O'Reilly.</li>
-        <li>Erl, T. (2005). Service-Oriented Architecture. Prentice Hall.</li>
-        <li>Erl, T. (2009). Web Service Contract Design and Versioning. Prentice Hall.</li>
-        <li>Hohpe, G., & Woolf, B. (2003). Enterprise Integration Patterns. Addison-Wesley.</li>
-        <li>Newman, S. (2015). Building Microservices. O'Reilly.</li>
-        <li>W3C. (1999). HTTP/1.1 RFC 2616.</li>
-        <li>Introducing JSON (2006). JSON.org</li>
+        <li>RESTful Web Services Cookbook (2010)</li>
+        <li>Web Services: Concepts, Architectures and Applications (2005)</li>
+        <li>RFC 2616: HTTP/1.1 (1999)</li>
+        <li>Introducing JSON (2006)</li>
         <li>XML 1.0 Specification</li>
-        <li>UDDI Specification</li>
         <li>WSDL 1.1 Specification</li>
+        <li>UDDI Specification</li>
       </ul>
     `;
   });
