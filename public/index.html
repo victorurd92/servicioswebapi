@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="curvas-animadas"></div>
+  <div class="fondo"></div>
+
   <header>
     <img src="logo-intep.png" alt="Logo INTEP" class="logo" />
     <h1 class="titulo">Servicios Web - API</h1>
@@ -16,18 +17,23 @@
 
   <section class="buscador">
     <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
-    <input type="text" id="termino" placeholder="Escribe un término o usa la lista..." />
+    <input type="text" id="termino" placeholder="Escribe un término o usa la lista…" />
     <div class="botones">
       <button onclick="buscar()">Buscar</button>
       <button onclick="borrar()">Borrar</button>
       <button onclick="verTodos()">+ ver todos</button>
-      <button onclick="mostrarBibliografia()">Bibliografía</button>
-      <button onclick="window.open('https://campus.intep.edu.co', '_blank')">Ir al Campus INTEP</button>
+      <button onclick="window.location.href='https://intep.edu.co'">Ir al Campus INTEP</button>
+      <button onclick="window.location.href='bibliografia.html'">Bibliografía</button>
     </div>
+    <div id="resultado"></div>
   </section>
 
   <footer>
-    <p>© Desarrollado por <strong>Víctor Danilo Urdinola Aponte</strong> - <strong>Pablo Andrés García Acosta</strong> - <strong>Juan Manuel Díaz</strong> - Proyecto académico INTEP 2025</p>
+    <p>
+      © Desarrollado por <strong>Víctor Danilo Urdinola Aponte</strong> -
+      <strong>Pablo Andrés García Acosta</strong> -
+      <strong>Juan Manuel Díaz</strong> - Proyecto académico INTEP 2025
+    </p>
   </footer>
 
   <script src="script.js"></script>
