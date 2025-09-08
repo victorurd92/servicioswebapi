@@ -1,55 +1,47 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
+body {
   font-family: Arial, sans-serif;
-  background: url('fondo.jpg') no-repeat center center fixed;
-  background-size: cover;
+  margin: 0;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  background: url('fondo-api.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
-/* Header */
 header {
   text-align: center;
-  padding: 30px 10px 10px;
+  padding: 20px;
   color: white;
-  background-color: rgba(0, 51, 102, 0.85);
+  text-shadow: 1px 1px 4px #000;
 }
 
-/* Contenido principal */
+.logo {
+  width: 80px;
+}
+
 main {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px 20px 80px;
 }
 
-/* Buscador */
 .buscador {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 25px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  width: 90%;
-  max-width: 500px;
+  margin: 20px;
+  max-width: 600px;
   text-align: center;
 }
 
 .buscador input {
   width: 90%;
   padding: 10px;
-  font-size: 16px;
   margin-bottom: 15px;
+  font-size: 16px;
 }
 
-/* Botones */
 .botones {
   display: flex;
   flex-direction: column;
@@ -58,37 +50,37 @@ main {
 
 .btn {
   padding: 10px;
-  font-size: 15px;
   border: none;
-  color: white;
   border-radius: 8px;
+  color: white;
   cursor: pointer;
-  transition: background 0.3s;
+  font-size: 15px;
 }
 
 .azul { background-color: #007BFF; }
-.rojo { background-color: #dc3545; }
-.celeste { background-color: #17a2b8; }
-.verde { background-color: #28a745; text-decoration: none; text-align: center; }
-.morado { background-color: #6f42c1; }
+.rojo { background-color: #DC3545; }
+.celeste { background-color: #17A2B8; }
+.verde { background-color: #28A745; text-decoration: none; display: inline-block; text-align: center; }
+.morado { background-color: #6F42C1; }
 
-/* Resultados */
-.resultados {
-  margin-top: 20px;
-  width: 90%;
-  max-width: 700px;
-  background-color: white;
-  border-radius: 10px;
+#resultados {
+  background-color: rgba(255, 255, 255, 0.95);
   padding: 20px;
-  color: #333;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  margin-bottom: 20px;
+  max-width: 600px;
+  width: 90%;
 }
 
-/* Footer */
+.concepto {
+  margin-bottom: 20px;
+}
+
 footer {
-  background-color: #003366;
-  color: white;
   text-align: center;
   padding: 15px;
-  width: 100%;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  margin-top: auto;
 }
