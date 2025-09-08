@@ -1,39 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicios Web - API</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="fondo"></div>
-
   <header>
-    <img src="logo-intep.png" alt="Logo INTEP" class="logo" />
-    <h1 class="titulo">Servicios Web - API</h1>
-    <p class="subtitulo">Proyecto académico - INTEP</p>
+    <img src="logo-intep.png" alt="Logo INTEP" class="logo">
+    <h1>Servicios Web - API</h1>
+    <h2>Proyecto académico - INTEP</h2>
   </header>
 
-  <section class="buscador">
-    <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
-    <input type="text" id="termino" placeholder="Escribe un término o usa la lista…" />
-    <div class="botones">
-      <button onclick="buscar()">Buscar</button>
-      <button onclick="borrar()">Borrar</button>
-      <button onclick="verTodos()">+ ver todos</button>
-      <button onclick="window.location.href='https://intep.edu.co'">Ir al Campus INTEP</button>
-      <button onclick="window.location.href='bibliografia.html'">Bibliografía</button>
+  <main>
+    <div class="buscador">
+      <h3>Buscador de Conceptos (REST, SOAP, JSON, XML)</h3>
+      <input type="text" id="termino" placeholder="Escribe un término...">
+      <div class="botones">
+        <button onclick="buscar()">Buscar</button>
+        <button onclick="borrar()">Borrar</button>
+      </div>
+      <div class="extras">
+        <button onclick="verTodos()">Ver todos</button>
+        <button onclick="window.location.href='https://biblioteca.intep.edu.co/'">Bibliografía</button>
+        <button onclick="window.location.href='https://www.intep.edu.co/'">Ir al Campus INTEP</button>
+      </div>
+      <div id="resultado"></div>
     </div>
-    <div id="resultado"></div>
-  </section>
+  </main>
 
   <footer>
-    <p>
-      © Desarrollado por <strong>Víctor Danilo Urdinola Aponte</strong> -
-      <strong>Pablo Andrés García Acosta</strong> -
-      <strong>Juan Manuel Díaz</strong> - Proyecto académico INTEP 2025
-    </p>
+    <strong>Desarrollado por Víctor Danilo Urdinola Aponte • Pablo Andrés García Acosta • Juan Manuel Díaz</strong> — Proyecto académico INTEP 2025
   </footer>
 
   <script src="script.js"></script>
