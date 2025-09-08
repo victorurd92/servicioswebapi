@@ -9,7 +9,7 @@ body, html {
 }
 
 .background {
-  background: url("fondo-api") no-repeat center center fixed;
+  background: url("fondo-api.jpg") no-repeat center center fixed;
   background-size: cover;
   position: fixed;
   top: 0;
