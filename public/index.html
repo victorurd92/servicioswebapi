@@ -1,38 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Servicios Web - API</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <img src="logo-intep.png" alt="Logo INTEP" class="logo">
+    <img src="logo-intep.png" alt="Logo INTEP">
     <h1>Servicios Web - API</h1>
-    <h2>Proyecto académico - INTEP</h2>
+    <p>Proyecto académico · INTEP</p>
   </header>
 
-  <main>
-    <div class="buscador">
-      <h3>Buscador de Conceptos (REST, SOAP, JSON, XML)</h3>
-      <input type="text" id="termino" placeholder="Escribe un término...">
-      <div class="botones">
-        <button onclick="buscar()">Buscar</button>
-        <button onclick="borrar()">Borrar</button>
-      </div>
-      <div class="extras">
-        <button onclick="verTodos()">Ver todos</button>
-        <button onclick="window.location.href='https://biblioteca.intep.edu.co/'">Bibliografía</button>
-        <button onclick="window.location.href='https://www.intep.edu.co/'">Ir al Campus INTEP</button>
-      </div>
-      <div id="resultado"></div>
+  <div class="container">
+    <h3>Buscador de Conceptos (REST, SOAP, JSON, XML)</h3>
+    <input type="text" placeholder="Escribe un término o usa la lista..." id="buscador" />
+    
+    <div class="buttons">
+      <button class="buscar" onclick="buscar()">Buscar</button>
+      <button class="borrar" onclick="borrar()">Borrar</button>
+      <button class="bibliografia" onclick="abrirBibliografia()">Bibliografías</button>
+      <button class="campus" onclick="window.open('https://campus.intep.edu.co')">Ir al Campus INTEP</button>
     </div>
-  </main>
+  </div>
 
   <footer>
-    <strong>Desarrollado por Víctor Danilo Urdinola Aponte • Pablo Andrés García Acosta • Juan Manuel Díaz</strong> — Proyecto académico INTEP 2025
+    © 2025 · Proyecto académico INTEP · Creado por Victor Danilo Urdinola Aponte y Pablo Andrés García Acosta
   </footer>
+
+  <!-- Modal de bibliografía -->
+  <div class="modal" id="modalBiblio">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarBibliografia()">&times;</span>
+      <h2>Bibliografía</h2>
+      <ul>
+        <li>Allamaraju, S. (2010). RESTful Web Services Cookbook.</li>
+        <li>Erl, T. (2005). Service-Oriented Architecture (SOA).</li>
+        <li>Hohpe & Woolf (2003). Enterprise Integration Patterns.</li>
+        <li>Newman, S. (2015). Building Microservices.</li>
+      </ul>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
