@@ -1,44 +1,53 @@
-async function cargarDatos() {
-  const response = await fetch('data/data.json');
-  const datos = await response.json();
-  return datos;
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("busqueda");
+  const buscarBtn = document.getElementById("buscar");
+  const borrarBtn = document.getElementById("borrar");
+  const resultado = document.getElementById("resultado");
+  const verTodosBtn = document.getElementById("ver-todos");
+  const modal = document.getElementById("modal");
+  const modalContent = document.getElementById("modal-content");
+  const cerrarModalBtn = document.getElementById("cerrar-modal");
 
-function mostrarModal(contenido) {
-  const modal = document.getElementById('modal');
-  const modalContent = document.getElementById('modal-content');
-  modalContent.innerHTML = '<span class="close" onclick="cerrarModal()">×</span>';
-  contenido.forEach((item, index) => {
-    modalContent.innerHTML += `
-      <div class="resultado">
-        <h4>${index + 1}. ${item.titulo}</h4>
-        <p>${item.descripcion}</p>
-      </div>
-      <hr>
-    `;
+  buscarBtn.addEventListener("click", () => {
+    const valor = input.value.trim().toLowerCase();
+    if (!valor) return;
+
+    fetch("data/data.json")
+      .then((res) => res.json())
+      .then((datos) => {
+        const encontrado = datos.find((item) =>
+          item.titulo.toLowerCase().includes(valor)
+        );
+        resultado.innerHTML = encontrado
+          ? `<h3>${encontrado.titulo}</h3><p>${encontrado.descripcion}</p>`
+          : `<p>No se encontró el concepto.</p>`;
+      });
   });
-  modal.style.display = 'block';
-}
 
-function cerrarModal() {
-  document.getElementById('modal').style.display = 'none';
-}
+  borrarBtn.addEventListener("click", () => {
+    input.value = "";
+    resultado.innerHTML = "";
+  });
 
-async function verTodos() {
-  const datos = await cargarDatos();
-  mostrarModal(datos);
-}
-
-async function buscar() {
-  const texto = document.getElementById('inputBuscar').value.toLowerCase();
-  const datos = await cargarDatos();
-  const resultados = datos.filter(item =>
-    item.titulo.toLowerCase().includes(texto) ||
-    item.descripcion.toLowerCase().includes(texto)
-  );
-  mostrarModal(resultados);
-}
-
-function borrar() {
-  document.getElementById('inputBuscar').value = '';
-}
+  verTodosBtn.addEventListener("click", () => {
+    fetch("data/data.json")
+      .then((res) => res.json())
+      .then((datos) => {
+        modalContent.innerHTML =
+          '<span id="cerrar-modal">&times;</span><h2>Conceptos disponibles</h2>';
+        datos.forEach((item, i) => {
+          modalContent.innerHTML += `
+            <div>
+              <h3>${i + 1}. ${item.titulo}</h3>
+              <p>${item.descripcion}</p>
+              <hr>
+            </div>
+          `;
+        });
+        modal.style.display = "block";
+        document.getElementById("cerrar-modal").onclick = () => {
+          modal.style.display = "none";
+        };
+      });
+  });
+});

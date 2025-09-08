@@ -1,106 +1,121 @@
+/* Fondo animado */
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #ffffff;
-  overflow-x: hidden;
-}
-
-.background {
+  font-family: Arial, sans-serif;
   background-image: url("../fondo-api/fondo.png");
   background-size: cover;
-  background-position: center;
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: -1;
-  animation: moveBackground 10s ease-in-out infinite;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-@keyframes moveBackground {
-  0%, 100% { background-position: center top; }
-  50% { background-position: center bottom; }
-}
-
-.container {
+/* Encabezado */
+header {
   text-align: center;
-  margin-top: 80px;
+  padding-top: 20px;
+  color: #003366;
 }
 
-.logo {
-  width: 120px;
+#logo-intep {
+  width: 100px;
+  height: auto;
   margin-bottom: 10px;
 }
 
-input {
+/* Contenido principal */
+main {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+input,
+select {
   padding: 10px;
-  width: 80%;
-  max-width: 400px;
-  border: 1px solid #aaa;
+  width: 300px;
+  margin-bottom: 10px;
   border-radius: 5px;
-  margin-top: 20px;
+  border: 1px solid #ccc;
 }
 
-.botonera {
-  margin-top: 15px;
-}
-
-button {
-  margin: 5px;
+.btn-group button {
+  margin: 10px 5px;
   padding: 10px 15px;
   border: none;
-  border-radius: 8px;
-  color: white;
-  background-color: #007BFF;
+  border-radius: 5px;
+  font-weight: bold;
   cursor: pointer;
+}
+
+#buscar {
+  background-color: #007bff;
+  color: white;
+}
+
+#borrar {
+  background-color: #28a745;
+  color: white;
+}
+
+#ver-todos {
+  background-color: #007bff;
+  color: white;
 }
 
 button:nth-child(2) {
   background-color: #28a745;
-}
-button:nth-child(3) {
-  background-color: #dc3545;
+  color: white;
 }
 
-a button {
-  text-decoration: none;
+button:nth-child(3) {
+  background-color: #dc3545;
   color: white;
+}
+
+/* Resultado */
+#resultado {
+  margin-top: 20px;
+}
+
+/* Footer */
+footer {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 15px 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
 
 /* Modal */
-.modal {
+#modal {
   display: none;
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
-.modal-content {
-  background: white;
-  margin: 60px auto;
+#modal-content {
+  background-color: #fff;
+  margin: 50px auto;
   padding: 20px;
+  border-radius: 8px;
   width: 90%;
-  max-width: 700px;
-  border-radius: 10px;
-  position: relative;
+  max-width: 800px;
   max-height: 80vh;
   overflow-y: auto;
+  position: relative;
 }
 
-.close {
+#cerrar-modal {
   position: absolute;
-  right: 20px;
   top: 15px;
-  font-size: 24px;
+  right: 20px;
+  font-size: 30px;
+  color: red;
   cursor: pointer;
-}
-
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: #007BFF;
-  color: white;
-  text-align: center;
-  padding: 10px;
 }

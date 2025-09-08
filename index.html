@@ -2,43 +2,46 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Servicios Web - API</title>
   <link rel="stylesheet" href="style/style.css" />
 </head>
 <body>
-  <div class="background"></div>
-  <div class="container">
-    <img src="logo-intep/logo.png" alt="INTEP Logo" class="logo" />
+  <header>
+    <img src="logo-intep/logo-intep.png" alt="Logo INTEP" id="logo-intep" />
     <h1>Servicios Web - API</h1>
     <p>Proyecto Académico INTEP</p>
-    <input type="text" id="inputBuscar" placeholder="REST - SOAP - JSON - XML" />
-    <div class="botonera">
-      <button onclick="buscar()">Buscar</button>
-      <button onclick="borrar()">Borrar</button>
-    </div>
-    <div class="botonera">
-      <button onclick="verTodos()">+ Ver todos</button>
-      <a href="https://www.intep.edu.co/" target="_blank">
-        <button>Ir al Campus INTEP</button>
-      </a>
-      <a href="data/bibliografia.html" target="_blank">
-        <button>Bibliografía</button>
-      </a>
-    </div>
-  </div>
+  </header>
 
-  <div class="modal" id="modal">
-    <div class="modal-content" id="modal-content">
-      <span class="close" onclick="cerrarModal()">×</span>
-      <!-- Resultados se insertan aquí -->
+  <main>
+    <select id="tipoServicio">
+      <option disabled selected>REST - SOAP - JSON - XML</option>
+    </select>
+    <input type="text" id="busqueda" placeholder="Buscar concepto..." />
+    <div class="btn-group">
+      <button id="buscar">Buscar</button>
+      <button id="borrar">Borrar</button>
     </div>
-  </div>
+    <div class="btn-group">
+      <button id="ver-todos">+ Ver todos</button>
+      <button onclick="window.open('https://www.intep.edu.co')">Ir al Campus INTEP</button>
+      <button onclick="window.open('https://www.biblioteca.intep.edu.co')">Bibliografía</button>
+    </div>
+    <div id="resultado"></div>
+  </main>
 
   <footer>
-    <p>© 2025 - Proyecto Académico INTEP</p>
+    <p>&copy; 2025 - Proyecto Académico INTEP</p>
     <p>Presentado por: Víctor Danilo Urdinola Aponte - Pablo Andrés García - Juan Manuel Díaz</p>
   </footer>
+
+  <!-- Modal -->
+  <div id="modal">
+    <div id="modal-content">
+      <span id="cerrar-modal">&times;</span>
+      <!-- Contenido se genera dinámicamente -->
+    </div>
+  </div>
 
   <script src="script/script.js"></script>
 </body>
