@@ -1,50 +1,42 @@
-let datos = [];
+let data = [];
 
-fetch('data.json')
-  .then(response => response.json())
-  .then(data => {
-    datos = data;
-  })
-  .catch(error => {
-    console.error('Error al cargar los datos:', error);
-    document.getElementById('resultado').innerText = 'Error al cargar los conceptos.';
-  });
+fetch("data.json")
+  .then((response) => response.json())
+  .then((json) => (data = json))
+  .catch((error) => console.error("Error cargando JSON:", error));
 
 function buscar() {
-  const termino = document.getElementById('termino').value.trim().toLowerCase();
-  const resultado = datos.find(item => item.termino.toLowerCase() === termino);
+  const termino = document.getElementById("busqueda").value.toLowerCase();
+  const resultado = data.find((item) =>
+    item.termino.toLowerCase().includes(termino)
+  );
 
-  if (resultado) {
-    document.getElementById('resultado').innerHTML = `
-      <p><strong>Definición:</strong> ${resultado.definicion}</p>
-      <p><strong>Fuente:</strong> ${resultado.fuente}</p>
-    `;
-  } else {
-    document.getElementById('resultado').innerText = 'Concepto no encontrado.';
-  }
+  document.getElementById("resultado").innerHTML = resultado
+    ? `<h3>${resultado.termino}</h3><p>${resultado.definicion}</p><p><em>${resultado.fuente}</em></p>`
+    : "<p>No se encontró el término.</p>";
 }
 
 function borrar() {
-  document.getElementById('termino').value = '';
-  document.getElementById('resultado').innerHTML = '';
+  document.getElementById("busqueda").value = "";
+  document.getElementById("resultado").innerHTML = "";
 }
 
 function verTodos() {
-  if (datos.length === 0) return;
-
-  let html = '<ul>';
-  datos.forEach(item => {
-    html += `<li><strong>${item.termino}</strong>: ${item.definicion} <em>(${item.fuente})</em></li>`;
-  });
-  html += '</ul>';
-
-  document.getElementById('resultado').innerHTML = html;
+  const html = data
+    .map(
+      (item) =>
+        `<div><strong>${item.termino}</strong>: ${item.definicion}<br><em>${item.fuente}</em></div><hr>`
+    )
+    .join("");
+  document.getElementById("resultado").innerHTML = html;
 }
 
-function mostrarBibliografia() {
-  const fuentes = [...new Set(datos.map(item => item.fuente))];
-  let html = '<h3>Bibliografía</h3><ul>';
-  fuentes.forEach(f => html += `<li>${f}</li>`);
-  html += '</ul>';
-  document.getElementById('resultado').innerHTML = html;
+function irCampus() {
+  window.open("https://campus.intep.edu.co", "_blank");
+}
+
+function verBibliografia() {
+  const fuentes = data.map((item) => `• ${item.fuente}`).join("<br>");
+  document.getElementById("resultado").innerHTML =
+    "<h3>Bibliografía:</h3><p>" + fuentes + "</p>";
 }

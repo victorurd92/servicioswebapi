@@ -4,31 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Servicios Web - API</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="background">
-    <div class="header">
-      <img src="logo-intep.png" alt="Logo INTEP" class="logo" />
-      <h1>Servicios Web - API</h1>
-      <h2>Proyecto Académico INTEP</h2>
-    </div>
-
-    <div class="buscador">
-      <input type="text" id="termino" placeholder="REST, SOAP, JSON, XML" />
+  <div class="background"></div>
+  <div class="container">
+    <img src="logo-intep.png" alt="INTEP" class="logo" />
+    <h1>Servicios Web - API</h1>
+    <h2>Proyecto Académico INTEP</h2>
+    <input type="text" id="busqueda" placeholder="REST, SOAP, JSON, XML" />
+    <div class="botones-superiores">
       <button onclick="buscar()">Buscar</button>
       <button onclick="borrar()">Borrar</button>
-      <button onclick="verTodos()">+ Ver todos</button>
-      <button onclick="window.open('https://campus.intep.edu.co', '_blank')">Ir al Campus INTEP</button>
-      <button onclick="mostrarBibliografia()">Bibliografía</button>
-      <div id="resultado"></div>
     </div>
+    <div class="botones-inferiores">
+      <button onclick="verTodos()">+ Ver todos</button>
+      <button onclick="irCampus()">Ir al Campus INTEP</button>
+      <button onclick="verBibliografia()">Bibliografía</button>
+    </div>
+    <div id="resultado"></div>
   </div>
-
   <footer>
-    <p>© 2025 - Proyecto académico INTEP<br>Presentado por Victor Danilo Urdinola Aponte – Pablo Andrés García – Juan Manuel Díaz</p>
+    © 2025 · Proyecto académico INTEP<br />
+    Presentado por Víctor Danilo Urdinola Aponte - Pablo Andrés García - Juan Manuel Díaz
   </footer>
-
   <script src="script.js"></script>
 </body>
 </html>
