@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Servicios Web - API</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -10,26 +10,25 @@
   <header>
     <img src="logo-intep.png" alt="Logo INTEP" class="logo" />
     <h1>Servicios Web - API</h1>
-    <p class="subtitulo">Proyecto académico INTEP</p>
+    <p class="subtitulo">Proyecto Académico INTEP</p>
   </header>
 
   <main>
     <div class="buscador">
-      <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
-      <input type="text" id="busqueda" placeholder="Escribe un término..." />
+      <input type="text" id="inputConcepto" placeholder="REST, SOAP, JSON, XML" />
       <div class="botones">
-        <button onclick="buscarConcepto()">Buscar</button>
-        <button onclick="limpiarBusqueda()" class="btn-rojo">Borrar</button>
-        <button onclick="verTodos()">+ Ver todos</button>
-        <button onclick="irBibliografia()" class="btn-morado">Bibliografía</button>
-        <button onclick="irCampus()" class="btn-verde">Ir al Campus INTEP</button>
+        <button id="btnBuscar" class="btn buscar">Buscar</button>
+        <button id="btnBorrar" class="btn borrar">Borrar</button>
+        <button id="btnVerTodos" class="btn ver-todos">+ Ver todos</button>
+        <button id="btnCampus" class="btn campus" onclick="window.open('https://campus.intep.edu.co', '_blank')">Ir al Campus INTEP</button>
+        <button id="btnBibliografia" class="btn bibliografia">Bibliografía</button>
       </div>
-      <div id="resultados"></div>
     </div>
+    <div id="resultado" class="resultado"></div>
   </main>
 
   <footer>
-    <p>&copy; 2025 - Proyecto académico INTEP</p>
+    <p>© 2025 · Proyecto académico INTEP</p>
     <p>Presentado por Victor Danilo Urdinola Aponte</p>
   </footer>
 

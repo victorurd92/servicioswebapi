@@ -1,88 +1,80 @@
 body {
   margin: 0;
-  padding: 0;
   font-family: Arial, sans-serif;
   background-image: url('fondo-api.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
   background-attachment: fixed;
+  background-repeat: no-repeat;
   color: #fff;
   text-align: center;
 }
 
-.logo {
-  width: 80px;
-  margin-top: 10px;
+header {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
 }
 
-header {
-  background-color: rgba(0, 0, 128, 0.8);
-  padding: 20px 0;
+.logo {
+  width: 60px;
+  float: left;
 }
 
 h1 {
+  font-size: 2.5em;
   margin: 0;
-  font-size: 2.5rem;
 }
 
 .subtitulo {
-  font-size: 1rem;
-  margin-top: 5px;
+  font-size: 1.2em;
 }
 
-.buscador {
-  background-color: rgba(255, 255, 255, 0.95);
+main {
+  margin: 30px auto;
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
   padding: 20px;
-  margin: 40px auto;
-  width: 90%;
-  max-width: 500px;
-  border-radius: 15px;
-  box-shadow: 0 0 10px #00000055;
   color: #000;
 }
 
-.buscador h2 {
-  margin-bottom: 20px;
-}
-
-input[type="text"] {
+.buscador input {
   padding: 10px;
   width: 80%;
+  font-size: 1.1em;
   margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 5px;
 }
 
-.botones button {
-  padding: 10px 15px;
-  margin: 5px;
+.botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn {
+  padding: 10px 20px;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  border-radius: 5px;
   font-weight: bold;
+  cursor: pointer;
+  color: white;
 }
 
-button {
-  background-color: #007bff;
-  color: #fff;
-}
+.buscar { background: #007BFF; }
+.borrar { background: #DC3545; }
+.ver-todos { background: #17A2B8; }
+.campus { background: #28A745; }
+.bibliografia { background: #6F42C1; }
 
-.btn-rojo {
-  background-color: #dc3545;
-}
-
-.btn-verde {
-  background-color: #28a745;
-}
-
-.btn-morado {
-  background-color: #6f42c1;
+.resultado {
+  margin-top: 20px;
+  text-align: left;
 }
 
 footer {
-  background-color: rgba(0, 0, 128, 0.8);
-  padding: 10px;
-  position: relative;
-  bottom: 0;
-  color: white;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  font-size: 0.9em;
 }

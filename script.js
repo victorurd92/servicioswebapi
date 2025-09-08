@@ -1,59 +1,71 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("inputConcepto");
   const resultado = document.getElementById("resultado");
 
   let conceptos = [];
 
-  // Cargar los conceptos desde conceptos.json
-  fetch("conceptos.json")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("No se pudo cargar el archivo de conceptos.");
-      }
-      return response.json();
-    })
+  // Cargar conceptos desde data.json
+  fetch("data.json")
+    .then((res) => res.json())
     .then((data) => {
       conceptos = data;
-      resultado.textContent = "Conceptos cargados correctamente.";
-      resultado.style.color = "green";
+      resultado.innerHTML = "<p style='color:green'>Conceptos cargados correctamente.</p>";
     })
-    .catch((error) => {
-      resultado.textContent = "Error al cargar los conceptos.";
-      resultado.style.color = "red";
+    .catch(() => {
+      resultado.innerHTML = "<p style='color:red'>Error al cargar los conceptos.</p>";
     });
 
-  // Buscar
-  document.getElementById("btnBuscar").addEventListener("click", function () {
-    const termino = input.value.trim().toLowerCase();
-    if (!termino) return;
+  // Buscar por término
+  document.getElementById("btnBuscar").addEventListener("click", () => {
+    const texto = input.value.toLowerCase().trim();
+    if (texto === "") return;
 
-    const encontrados = conceptos.filter((c) =>
-      c.concepto.toLowerCase().includes(termino)
+    const encontrados = conceptos.filter(c =>
+      c.termino.toLowerCase().includes(texto)
     );
 
     if (encontrados.length > 0) {
-      resultado.innerHTML = encontrados
-        .map((c) => `<p><strong>${c.concepto}:</strong> ${c.definicion}</p>`)
-        .join("");
+      resultado.innerHTML = encontrados.map(c => `
+        <p><strong>${c.termino}</strong>: ${c.definicion}<br><em>Fuente: ${c.fuente}</em></p>
+      `).join("");
     } else {
       resultado.innerHTML = "<p>No se encontraron resultados.</p>";
     }
   });
 
-  // Ver todos
-  document.getElementById("btnVerTodos").addEventListener("click", function () {
-    if (conceptos.length > 0) {
-      resultado.innerHTML = conceptos
-        .map((c) => `<p><strong>${c.concepto}:</strong> ${c.definicion}</p>`)
-        .join("");
-    } else {
-      resultado.innerHTML = "<p>No hay conceptos disponibles.</p>";
+  // Mostrar todos
+  document.getElementById("btnVerTodos").addEventListener("click", () => {
+    if (conceptos.length === 0) {
+      resultado.innerHTML = "<p>No hay conceptos cargados.</p>";
+      return;
     }
+    resultado.innerHTML = conceptos.map(c => `
+      <p><strong>${c.termino}</strong>: ${c.definicion}<br><em>Fuente: ${c.fuente}</em></p>
+    `).join("");
   });
 
-  // Borrar
-  document.getElementById("btnBorrar").addEventListener("click", function () {
+  // Limpiar
+  document.getElementById("btnBorrar").addEventListener("click", () => {
     input.value = "";
     resultado.innerHTML = "";
+  });
+
+  // Bibliografía
+  document.getElementById("btnBibliografia").addEventListener("click", () => {
+    resultado.innerHTML = `
+      <h3>Bibliografía</h3>
+      <ul>
+        <li>Allamaraju, S. (2010). RESTful Web Services. O'Reilly.</li>
+        <li>Erl, T. (2005). Service-Oriented Architecture. Prentice Hall.</li>
+        <li>Erl, T. (2009). Web Service Contract Design and Versioning. Prentice Hall.</li>
+        <li>Hohpe, G., & Woolf, B. (2003). Enterprise Integration Patterns. Addison-Wesley.</li>
+        <li>Newman, S. (2015). Building Microservices. O'Reilly.</li>
+        <li>W3C. (1999). HTTP/1.1 RFC 2616.</li>
+        <li>Introducing JSON (2006). JSON.org</li>
+        <li>XML 1.0 Specification</li>
+        <li>UDDI Specification</li>
+        <li>WSDL 1.1 Specification</li>
+      </ul>
+    `;
   });
 });
