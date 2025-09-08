@@ -1,16 +1,81 @@
-document.getElementById('btnBibliografia').addEventListener('click', () => {
-  const modal = document.createElement('div');
-  modal.classList.add('modal');
-  modal.innerHTML = `
-    <div class="modal-content">
-      <h2>Bibliografía</h2>
-      <p>
-        • Allamaraju, Subbu. <i>RESTful Web Services</i> (2010)<br>
-        • Erl, Thomas. <i>Service-Oriented Architecture</i> (2005, 2009)<br>
-        • Hohpe, Gregor; Woolf, Bobby. <i>Enterprise Integration Patterns</i> (2003)
-      </p>
-      <button onclick="this.parentElement.parentElement.remove()">Cerrar</button>
-    </div>
-  `;
-  document.body.appendChild(modal);
+// Esperar a que cargue el DOM
+document.addEventListener("DOMContentLoaded", () => {
+    const inputBusqueda = document.getElementById("busqueda");
+    const resultado = document.getElementById("resultado");
+    const btnBuscar = document.getElementById("btnBuscar");
+    const btnBorrar = document.getElementById("btnBorrar");
+    const btnVerTodos = document.getElementById("btnVerTodos");
+    const btnBibliografia = document.getElementById("btnBibliografia");
+    const modal = document.getElementById("modal");
+    const cerrarModal = document.getElementById("cerrarModal");
+
+    // Función para mostrar conceptos
+    const mostrarConceptos = (conceptos) => {
+        resultado.innerHTML = "";
+        if (conceptos.length === 0) {
+            resultado.innerHTML = "<p>No se encontraron resultados.</p>";
+            return;
+        }
+        conceptos.forEach(item => {
+            const div = document.createElement("div");
+            div.classList.add("resultado-item");
+            div.innerHTML = `
+                <h3>${item.term}</h3>
+                <p>${item.definition}</p>
+            `;
+            resultado.appendChild(div);
+        });
+    };
+
+    // Cargar datos desde JSON
+    const cargarDatos = async () => {
+        try {
+            const res = await fetch("data/data.json");
+            const data = await res.json();
+            return data;
+        } catch (error) {
+            console.error("Error al cargar data.json", error);
+            resultado.innerHTML = "<p>Error al cargar datos.</p>";
+            return [];
+        }
+    };
+
+    // Buscar término
+    btnBuscar.addEventListener("click", async () => {
+        const termino = inputBusqueda.value.trim().toLowerCase();
+        const data = await cargarDatos();
+        const filtrado = data.filter(item =>
+            item.term.toLowerCase().includes(termino)
+        );
+        mostrarConceptos(filtrado);
+    });
+
+    // Mostrar todos
+    btnVerTodos.addEventListener("click", async () => {
+        const data = await cargarDatos();
+        mostrarConceptos(data);
+    });
+
+    // Borrar búsqueda
+    btnBorrar.addEventListener("click", () => {
+        inputBusqueda.value = "";
+        resultado.innerHTML = "";
+    });
+
+    // Mostrar bibliografía
+    btnBibliografia.addEventListener("click", () => {
+        modal.style.display = "block";
+    });
+
+    // Cerrar modal
+    cerrarModal.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    // Cerrar modal si hacen clic fuera de la ventana
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
 });

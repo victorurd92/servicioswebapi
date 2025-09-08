@@ -54,10 +54,9 @@ footer {
   text-align: center;
   color: #fff;
   background-color: #004AAD;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  line-height: 1.6;
 }
 
 .modal {
