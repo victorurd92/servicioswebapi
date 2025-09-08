@@ -1,60 +1,58 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const input = document.getElementById("inputConcepto");
-  const resultado = document.getElementById("resultado");
+let conceptos = [];
 
-  let conceptos = [];
-
-  fetch("data.json")
-    .then((res) => res.json())
-    .then((data) => {
-      conceptos = data;
-      console.log("Conceptos cargados correctamente");
-    })
-    .catch((err) => {
-      resultado.innerHTML = "<p style='color:red'>Error al cargar los conceptos.</p>";
-      console.error(err);
-    });
-
-  document.getElementById("btnBuscar").addEventListener("click", () => {
-    const texto = input.value.toLowerCase().trim();
-    if (!texto) return;
-
-    const encontrados = conceptos.filter(c =>
-      c.termino.toLowerCase().includes(texto)
-    );
-
-    if (encontrados.length > 0) {
-      resultado.innerHTML = encontrados.map(c => `
-        <p><strong>${c.termino}</strong>: ${c.definicion}<br><em>Fuente: ${c.fuente}</em></p>
-      `).join("");
-    } else {
-      resultado.innerHTML = "<p>No se encontraron resultados.</p>";
-    }
+fetch('data.json')
+  .then(res => res.json())
+  .then(data => {
+    conceptos = data;
+  })
+  .catch(() => {
+    document.getElementById('resultados').innerText = 'Error al cargar los conceptos.';
   });
 
-  document.getElementById("btnVerTodos").addEventListener("click", () => {
-    resultado.innerHTML = conceptos.map(c => `
-      <p><strong>${c.termino}</strong>: ${c.definicion}<br><em>Fuente: ${c.fuente}</em></p>
-    `).join("");
-  });
+function mostrarResultados(filtrados) {
+  const contenedor = document.getElementById('resultados');
+  contenedor.innerHTML = '';
 
-  document.getElementById("btnBorrar").addEventListener("click", () => {
-    input.value = "";
-    resultado.innerHTML = "";
-  });
+  if (filtrados.length === 0) {
+    contenedor.innerHTML = '<p>No se encontraron resultados.</p>';
+    return;
+  }
 
-  document.getElementById("btnBibliografia").addEventListener("click", () => {
-    resultado.innerHTML = `
-      <h3>Bibliografía</h3>
-      <ul>
-        <li>RESTful Web Services Cookbook (2010)</li>
-        <li>Web Services: Concepts, Architectures and Applications (2005)</li>
-        <li>RFC 2616: HTTP/1.1 (1999)</li>
-        <li>Introducing JSON (2006)</li>
-        <li>XML 1.0 Specification</li>
-        <li>WSDL 1.1 Specification</li>
-        <li>UDDI Specification</li>
-      </ul>
+  filtrados.forEach(item => {
+    const div = document.createElement('div');
+    div.innerHTML = `
+      <h3>${item.termino}</h3>
+      <p><strong>Definición:</strong> ${item.definicion}</p>
+      <p><strong>Fuente:</strong> ${item.fuente}</p>
+      <hr>
     `;
+    contenedor.appendChild(div);
   });
+}
+
+// Buscar
+document.getElementById('btnBuscar').addEventListener('click', () => {
+  const termino = document.getElementById('inputBusqueda').value.toLowerCase().trim();
+  const resultados = conceptos.filter(c => c.termino.toLowerCase().includes(termino));
+  mostrarResultados(resultados);
+});
+
+// Ver todos
+document.getElementById('btnVerTodos').addEventListener('click', () => {
+  mostrarResultados(conceptos);
+});
+
+// Borrar
+document.getElementById('btnBorrar').addEventListener('click', () => {
+  document.getElementById('inputBusqueda').value = '';
+  document.getElementById('resultados').innerHTML = '';
+});
+
+// Bibliografía
+document.getElementById('btnBibliografia').addEventListener('click', () => {
+  const fuentesUnicas = [...new Set(conceptos.map(c => c.fuente))];
+  const contenedor = document.getElementById('resultados');
+  contenedor.innerHTML = '<h3>Bibliografía</h3><ul>' +
+    fuentesUnicas.map(f => `<li>${f}</li>`).join('') +
+    '</ul>';
 });
