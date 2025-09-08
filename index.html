@@ -4,55 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Servicios Web - API</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style/style.css" />
 </head>
 <body>
+  <div class="background"></div>
   <div class="container">
-    <img src="logo-intep/logo.png" alt="Logo INTEP" class="logo" />
+    <img src="logo-intep/logo.png" alt="INTEP Logo" class="logo" />
     <h1>Servicios Web - API</h1>
-    <h2>Proyecto Académico INTEP</h2>
-
-    <input type="text" id="busqueda" placeholder="REST - SOAP - JSON - XML" />
-
-    <div class="buttons">
-      <button onclick="buscar()" class="btn btn-primary">Buscar</button>
-      <button onclick="borrar()" class="btn btn-success">Borrar</button>
+    <p>Proyecto Académico INTEP</p>
+    <input type="text" id="inputBuscar" placeholder="REST - SOAP - JSON - XML" />
+    <div class="botonera">
+      <button onclick="buscar()">Buscar</button>
+      <button onclick="borrar()">Borrar</button>
     </div>
-
-    <div class="buttons">
-      <button onclick="verTodos()" class="btn btn-primary">+ Ver todos</button>
-      <a href="https://www.intep.edu.co" target="_blank" class="btn btn-success">Ir al Campus INTEP</a>
-      <button onclick="mostrarBibliografia()" class="btn btn-danger">Bibliografía</button>
+    <div class="botonera">
+      <button onclick="verTodos()">+ Ver todos</button>
+      <a href="https://www.intep.edu.co/" target="_blank">
+        <button>Ir al Campus INTEP</button>
+      </a>
+      <a href="data/bibliografia.html" target="_blank">
+        <button>Bibliografía</button>
+      </a>
     </div>
+  </div>
 
-    <div id="resultado"></div>
-
-    <!-- Modal para Ver Todos -->
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="cerrarModal()">&times;</span>
-        <div id="contenidoModal"></div>
-      </div>
-    </div>
-
-    <!-- Bibliografía -->
-    <div id="bibliografia" class="oculto">
-      <h3>Bibliografía</h3>
-      <ul>
-        <li>Allamaraju, S. (2010). RESTful Web Services. O’Reilly.</li>
-        <li>Erl, T. (2005). Service-Oriented Architecture (SOA): Concepts, Technology, and Design.</li>
-        <li>Erl, T. (2009). Web Service Contract Design and Versioning for SOA.</li>
-        <li>Hohpe, G., & Woolf, B. (2003). Enterprise Integration Patterns. Addison-Wesley.</li>
-        <li>Newman, S. (2015). Building Microservices. O’Reilly Media.</li>
-      </ul>
+  <div class="modal" id="modal">
+    <div class="modal-content" id="modal-content">
+      <span class="close" onclick="cerrarModal()">×</span>
+      <!-- Resultados se insertan aquí -->
     </div>
   </div>
 
   <footer>
-    <p>© 2025 - Proyecto Académico INTEP<br />
-    Presentado por: Víctor Danilo Urdinola Aponte - Pablo Andrés García - Juan Manuel Díaz</p>
+    <p>© 2025 - Proyecto Académico INTEP</p>
+    <p>Presentado por: Víctor Danilo Urdinola Aponte - Pablo Andrés García - Juan Manuel Díaz</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script/script.js"></script>
 </body>
 </html>
