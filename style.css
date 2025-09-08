@@ -8,7 +8,7 @@ body, html {
 
 .background {
   min-height: calc(100vh - 80px); /* Resta el espacio del footer */
-  background-image: url('fondo.png');
+  background-image: url('fondo-api.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
