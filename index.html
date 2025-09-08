@@ -5,52 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Servicios Web - API</title>
   <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <header>
-    <img src="assets/intep-logo.png" alt="Logo INTEP" class="logo" />
-    <h1>Servicios Web - API</h1>
-    <p>Proyecto académico - INTEP</p>
-  </header>
+  <div class="background">
+    <header>
+      <img src="logo-intep.png" alt="Logo INTEP">
+      <h1>Servicios Web - API</h1>
+      <h2>Proyecto académico - INTEP</h2>
+    </header>
 
-  <main>
-    <div class="panel">
-      <h2>Buscador de Conceptos (REST, SOAP, JSON, XML)</h2>
-      <input type="text" id="searchInput" placeholder="Escribe un término o usa la lista..." />
-
-      <div class="button-group">
-        <button onclick="mostrarTodo()" class="btn info">+ Ver todos</button>
-        <button onclick="buscarTermino()" class="btn primary">Buscar</button>
-        <button onclick="borrarBusqueda()" class="btn danger">Borrar</button>
-        <button onclick="mostrarBibliografia()" class="btn secondary">Bibliografía</button>
-        <a href="https://www.intep.edu.co/" target="_blank" class="btn success">Ir al Campus INTEP</a>
+    <main>
+      <h3>Buscador de Conceptos (REST, SOAP, JSON, XML)</h3>
+      <input type="text" id="termino" placeholder="Escribe un término o usa la lista...">
+      <div class="botones">
+        <button id="btnVerTodos">+ Ver todos</button>
+        <button id="btnBuscar">Buscar</button>
+        <button id="btnBorrar">Borrar</button>
+        <button id="btnBibliografia">Bibliografía</button>
+        <a href="https://campus.intep.edu.co" target="_blank"><button id="btnCampus">Ir al Campus INTEP</button></a>
       </div>
+      <div id="resultado"></div>
+    </main>
 
-      <div id="resultados" class="result-box"></div>
-    </div>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 - Proyecto académico INTEP</p>
-  </footer>
-
-  <!-- Modal Bibliografía -->
-  <dialog id="modalBiblio" class="modal">
-    <div class="modal-card">
-      <h3>Bibliografía consultada</h3>
-      <ul class="biblio-list">
-        <li><a href="https://restfulapi.net/" target="_blank" rel="noopener">restfulapi.net (REST)</a></li>
-        <li><a href="https://www.w3.org/TR/soap12-part1/" target="_blank" rel="noopener">W3C: SOAP 1.2</a></li>
-        <li><a href="https://www.w3.org/TR/REC-xml/" target="_blank" rel="noopener">W3C: XML 1.0</a></li>
-        <li><a href="https://www.w3.org/TR/wsdl" target="_blank" rel="noopener">W3C: WSDL</a></li>
-        <li><a href="https://www.oasis-open.org/committees/uddi-spec/doc/spec/v3/uddi-v3.0.2-20041019.htm" target="_blank" rel="noopener">OASIS: UDDI v3</a></li>
-      </ul>
-      <div class="modal-actions">
-        <button id="closeBiblio" class="btn">Cerrar</button>
-      </div>
-    </div>
-  </dialog>
-
-  <script src="script.js"></script>
+    <footer>
+      © 2025 - Proyecto académico INTEP <br>
+      Desarrollado por: Victor Danilo Urdinola Aponte, Pablo Andrés García Acosta, Juan Manuel Díaz Martínez
+    </footer>
+  </div>
 </body>
 </html>

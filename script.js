@@ -1,45 +1,81 @@
-let data = [];
+// Esperar a que cargue el DOM
+document.addEventListener("DOMContentLoaded", () => {
+    const inputBusqueda = document.getElementById("busqueda");
+    const resultado = document.getElementById("resultado");
+    const btnBuscar = document.getElementById("btnBuscar");
+    const btnBorrar = document.getElementById("btnBorrar");
+    const btnVerTodos = document.getElementById("btnVerTodos");
+    const btnBibliografia = document.getElementById("btnBibliografia");
+    const modal = document.getElementById("modal");
+    const cerrarModal = document.getElementById("cerrarModal");
 
-fetch('data.json')
-  .then(response => response.json())
-  .then(json => data = json);
+    // Función para mostrar conceptos
+    const mostrarConceptos = (conceptos) => {
+        resultado.innerHTML = "";
+        if (conceptos.length === 0) {
+            resultado.innerHTML = "<p>No se encontraron resultados.</p>";
+            return;
+        }
+        conceptos.forEach(item => {
+            const div = document.createElement("div");
+            div.classList.add("resultado-item");
+            div.innerHTML = `
+                <h3>${item.term}</h3>
+                <p>${item.definition}</p>
+            `;
+            resultado.appendChild(div);
+        });
+    };
 
-function buscarTermino() {
-  const input = document.getElementById('searchInput').value.toLowerCase();
-  const resultados = data.filter(item => item.termino.toLowerCase().includes(input));
+    // Cargar datos desde JSON
+    const cargarDatos = async () => {
+        try {
+            const res = await fetch("data/data.json");
+            const data = await res.json();
+            return data;
+        } catch (error) {
+            console.error("Error al cargar data.json", error);
+            resultado.innerHTML = "<p>Error al cargar datos.</p>";
+            return [];
+        }
+    };
 
-  mostrarResultados(resultados);
-}
+    // Buscar término
+    btnBuscar.addEventListener("click", async () => {
+        const termino = inputBusqueda.value.trim().toLowerCase();
+        const data = await cargarDatos();
+        const filtrado = data.filter(item =>
+            item.term.toLowerCase().includes(termino)
+        );
+        mostrarConceptos(filtrado);
+    });
 
-function borrarBusqueda() {
-  document.getElementById('searchInput').value = '';
-  document.getElementById('resultados').innerHTML = '';
-}
+    // Mostrar todos
+    btnVerTodos.addEventListener("click", async () => {
+        const data = await cargarDatos();
+        mostrarConceptos(data);
+    });
 
-function mostrarTodo() {
-  mostrarResultados(data);
-}
+    // Borrar búsqueda
+    btnBorrar.addEventListener("click", () => {
+        inputBusqueda.value = "";
+        resultado.innerHTML = "";
+    });
 
-function mostrarResultados(resultados) {
-  const div = document.getElementById('resultados');
-  if (resultados.length === 0) {
-    div.innerHTML = '<p>No se encontraron resultados.</p>';
-    return;
-  }
+    // Mostrar bibliografía
+    btnBibliografia.addEventListener("click", () => {
+        modal.style.display = "block";
+    });
 
-  div.innerHTML = resultados.map(item => `
-    <div>
-      <strong>${item.termino}</strong>: ${item.definicion}
-      <br><em>Fuente:</em> ${item.fuente}
-    </div>
-    <hr>
-  `).join('');
-}
+    // Cerrar modal
+    cerrarModal.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
 
-// Modal bibliografía
-function mostrarBibliografia() {
-  document.getElementById('modalBiblio').showModal();
-}
-document.getElementById('closeBiblio').addEventListener('click', () => {
-  document.getElementById('modalBiblio').close();
+    // Cerrar modal si hacen clic fuera de la ventana
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
 });
