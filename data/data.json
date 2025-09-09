@@ -1,18 +1,74 @@
 [
   {
     "titulo": "REST",
-    "descripcion": "Arquitectura que utiliza métodos HTTP y formato JSON."
+    "descripcion": "REST es un estilo de arquitectura que usa métodos HTTP para acceder a recursos y manipular datos a través de URLs."
   },
   {
     "titulo": "SOAP",
-    "descripcion": "Protocolo basado en XML para intercambio estructurado de información."
+    "descripcion": "SOAP es un protocolo basado en XML que permite el intercambio estructurado de información entre sistemas."
   },
   {
     "titulo": "JSON",
-    "descripcion": "Formato ligero de intercambio de datos fácil de leer y escribir."
+    "descripcion": "JSON (JavaScript Object Notation) es un formato ligero para el intercambio de datos legible por humanos y máquinas."
   },
   {
     "titulo": "XML",
-    "descripcion": "Lenguaje de marcas extensible utilizado para almacenar y transportar datos."
+    "descripcion": "XML (eXtensible Markup Language) es un lenguaje de marcado que almacena datos estructurados en forma jerárquica."
+  },
+  {
+    "titulo": "WSDL",
+    "descripcion": "WSDL (Web Services Description Language) describe los servicios web, los métodos disponibles y cómo acceder a ellos."
+  },
+  {
+    "titulo": "UDDI",
+    "descripcion": "UDDI (Universal Description, Discovery and Integration) es un estándar para publicar y descubrir servicios web en un directorio."
+  },
+  {
+    "titulo": "API",
+    "descripcion": "Una API (Application Programming Interface) permite la comunicación entre aplicaciones mediante reglas definidas."
+  },
+  {
+    "titulo": "HTTP",
+    "descripcion": "HTTP (HyperText Transfer Protocol) es el protocolo base de la web y permite la comunicación entre clientes y servidores."
+  },
+  {
+    "titulo": "HTTPS",
+    "descripcion": "HTTPS es la versión segura de HTTP, que utiliza cifrado SSL/TLS para proteger los datos transmitidos."
+  },
+  {
+    "titulo": "GET",
+    "descripcion": "GET es un método HTTP usado para solicitar datos desde un servidor sin modificar el recurso."
+  },
+  {
+    "titulo": "POST",
+    "descripcion": "POST es un método HTTP utilizado para enviar datos al servidor y crear nuevos recursos."
+  },
+  {
+    "titulo": "PUT",
+    "descripcion": "PUT es un método HTTP que se utiliza para actualizar un recurso existente o crear uno si no existe."
+  },
+  {
+    "titulo": "DELETE",
+    "descripcion": "DELETE es un método HTTP usado para eliminar recursos del servidor."
+  },
+  {
+    "titulo": "PATCH",
+    "descripcion": "PATCH es un método HTTP que se usa para aplicar cambios parciales a un recurso existente."
+  },
+  {
+    "titulo": "Microservicios",
+    "descripcion": "Los microservicios son una arquitectura que divide las aplicaciones en servicios pequeños e independientes."
+  },
+  {
+    "titulo": "Monolito",
+    "descripcion": "Una arquitectura monolítica integra toda la lógica de una aplicación en un solo sistema."
+  },
+  {
+    "titulo": "Cliente",
+    "descripcion": "Un cliente es una aplicación o sistema que consume servicios de un servidor o API."
+  },
+  {
+    "titulo": "Servidor",
+    "descripcion": "Un servidor es un sistema que proporciona servicios o recursos solicitados por clientes."
   }
 ]

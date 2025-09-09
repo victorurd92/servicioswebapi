@@ -1,47 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicios Web - API</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
+  <div class="fondo"></div>
+  <div class="contenido">
     <header>
-      <img src="logo-intep/logo-intep.png" alt="Logo INTEP" class="logo" />
+      <img src="logo-intep/logo-intep.png" alt="Logo INTEP" class="logo">
       <h1>Servicios Web - API</h1>
       <h2>Proyecto Académico INTEP</h2>
     </header>
 
-    <main>
-      <input type="text" id="searchInput" placeholder="REST - SOAP - JSON - XML" />
-
-      <div class="btn-group">
-        <button onclick="buscar()">Buscar</button>
-        <button onclick="borrar()">Borrar</button>
-      </div>
-
-      <div class="btn-group">
-        <button onclick="verTodos()">+ Ver todos</button>
-        <a href="https://intep.edu.co" target="_blank"><button>Ir al Campus INTEP</button></a>
-        <a href="bibliografia.html"><button>Bibliografía</button></a>
-      </div>
-    </main>
-
-    <footer>
-      <p>&copy; 2025 - Proyecto Académico INTEP</p>
-      <p>Presentado por: Víctor Danilo Urdinola Aponte - Pablo Andrés García - Juan Manuel Díaz</p>
-    </footer>
-  </div>
-
-  <!-- Modal -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="cerrarModal()">&times;</span>
-      <ul id="resultados"></ul>
+    <input type="text" id="busqueda" placeholder="REST - SOAP - JSON - XML">
+    <div class="botones">
+      <button onclick="buscar()">Buscar</button>
+      <button onclick="borrar()">Borrar</button>
+      <button onclick="verTodos()">+ Ver todos</button>
+      <a href="https://www.intep.edu.co" target="_blank"><button>Ir al Campus INTEP</button></a>
+      <a href="https://intepbiblioteca.bibliotecaescolardigital.com" target="_blank"><button>Bibliografía</button></a>
     </div>
+
+    <div id="resultado"></div>
   </div>
+
+  <footer>
+    <p>© 2025 - Proyecto Académico INTEP</p>
+    <p>Presentado por: Víctor Danilo Urdinola Aponte - Pablo Andrés García - Juan Manuel Díaz</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
