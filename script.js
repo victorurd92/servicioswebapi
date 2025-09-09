@@ -1,40 +1,40 @@
-function buscar() {
-  const termino = document.getElementById("busqueda").value.toLowerCase();
-  fetch('data/data.json')
-    .then(response => response.json())
-    .then(data => {
-      const resultado = data.filter(item =>
-        item.titulo.toLowerCase().includes(termino) || item.descripcion.toLowerCase().includes(termino)
-      );
+let conceptos = [];
 
-      mostrarResultado(resultado);
-    });
+fetch("data/data.json")
+  .then((res) => res.json())
+  .then((data) => {
+    conceptos = data;
+  })
+  .catch((err) => console.error("Error cargando JSON:", err));
+
+function buscarConcepto() {
+  const input = document.getElementById("inputBusqueda").value.toLowerCase();
+  const resultado = conceptos.filter((item) =>
+    item.titulo.toLowerCase().includes(input)
+  );
+  mostrarResultado(resultado);
 }
 
-function borrar() {
-  document.getElementById("busqueda").value = '';
-  document.getElementById("resultado").innerHTML = '';
+function borrarBusqueda() {
+  document.getElementById("inputBusqueda").value = "";
+  document.getElementById("resultado").innerHTML = "";
+  document.getElementById("bibliografia").style.display = "none";
 }
 
-function verTodos() {
-  fetch('data/data.json')
-    .then(response => response.json())
-    .then(data => {
-      mostrarResultado(data);
-    });
+function mostrarConceptos() {
+  mostrarResultado(conceptos);
 }
 
 function mostrarResultado(data) {
-  const div = document.getElementById("resultado");
-  if (data.length === 0) {
-    div.innerHTML = "<p>No se encontraron resultados.</p>";
-    return;
-  }
-
-  div.innerHTML = data.map((item, index) => `
-    <div style="background:#fff;margin:10px auto;padding:10px;border-radius:5px;width:80%;text-align:left;">
-      <strong>${index + 1}. ${item.titulo}</strong><br>
-      <span>${item.descripcion}</span>
+  const contenedor = document.getElementById("resultado");
+  contenedor.innerHTML = data.map((item, i) => `
+    <div>
+      <strong>${i + 1}. ${item.titulo}</strong>
+      <p>${item.descripcion}</p>
     </div>
-  `).join('');
+  `).join("");
+}
+
+function mostrarBibliografia() {
+  document.getElementById("bibliografia").style.display = "block";
 }

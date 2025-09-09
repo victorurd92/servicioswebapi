@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Servicios Web - API</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <div class="fondo"></div>
-  <div class="contenido">
-    <header>
-      <img src="logo-intep/logo-intep.png" alt="Logo INTEP" class="logo">
-      <h1>Servicios Web - API</h1>
-      <h2>Proyecto Académico INTEP</h2>
-    </header>
+  <div class="background">
+    <img src="fondo-api/fondo.svg" alt="fondo" />
+  </div>
 
-    <input type="text" id="busqueda" placeholder="REST - SOAP - JSON - XML">
-    <div class="botones">
-      <button onclick="buscar()">Buscar</button>
-      <button onclick="borrar()">Borrar</button>
-      <button onclick="verTodos()">+ Ver todos</button>
-      <a href="https://www.intep.edu.co" target="_blank"><button>Ir al Campus INTEP</button></a>
-      <a href="https://intepbiblioteca.bibliotecaescolardigital.com" target="_blank"><button>Bibliografía</button></a>
+  <div class="container">
+    <img src="logo-intep/intep-logo.png" alt="Logo INTEP" class="logo" />
+    <h1>Servicios Web - API</h1>
+    <p>Proyecto Académico INTEP</p>
+
+    <input type="text" id="inputBusqueda" placeholder="REST - SOAP - JSON - XML" />
+    <div class="buttons">
+      <button onclick="buscarConcepto()">Buscar</button>
+      <button onclick="borrarBusqueda()">Borrar</button>
+      <button onclick="mostrarConceptos()">+ Ver todos</button>
+      <button onclick="window.open('https://www.intep.edu.co/', '_blank')">Ir al Campus INTEP</button>
+      <button onclick="mostrarBibliografia()">Bibliografía</button>
     </div>
 
-    <div id="resultado"></div>
+    <div id="resultado" class="resultado"></div>
+    <div id="bibliografia" class="bibliografia" style="display:none;">
+      <h3>Referencias Bibliográficas</h3>
+      <ul>
+        <li>Allamaraju, S. (2010). RESTful Web Services. O'Reilly.</li>
+        <li>Erl, T. (2005). Service-Oriented Architecture: Concepts, Technology, and Design. Prentice Hall.</li>
+        <li>Erl, T. (2009). Web Service Contract Design and Versioning. Prentice Hall.</li>
+        <li>Hohpe, G., & Woolf, B. (2003). Enterprise Integration Patterns. Addison-Wesley.</li>
+      </ul>
+    </div>
   </div>
 
   <footer>
-    <p>© 2025 - Proyecto Académico INTEP</p>
-    <p>Presentado por: Víctor Danilo Urdinola Aponte - Pablo Andrés García - Juan Manuel Díaz</p>
+    <p>© 2025 - Proyecto Académico INTEP<br>
+    Presentado por: Víctor Danilo Urdinola Aponte - Pablo Andrés García - Juan Manuel Díaz</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
